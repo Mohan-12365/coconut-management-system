@@ -19,13 +19,13 @@ function LoginPage({ onLogin }) {
   }, [navigate]);
 
   const handleLogin = () => {
-    axios.post("/login", {
-      username,
-      password
+    api.post("/login", {
+      username: username,
+      password: password
     })
     .then(res => {
       alert("Login Success");
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", JSON.stringify(res.data));
       
       navigate("/dashboard")
 
