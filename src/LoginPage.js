@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "./api";
 
 function LoginPage({ onLogin }) {
 
@@ -18,7 +19,7 @@ function LoginPage({ onLogin }) {
   }, [navigate]);
 
   const handleLogin = () => {
-    axios.post("https://coconut-management-system-2.onrender.com", {
+    axios.post("/login", {
       username,
       password
     })
