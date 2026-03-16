@@ -1,0 +1,91 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+
+function ExpensePage() {
+
+  const [labourId, setLabourId] = useState("");
+  const [amount, setAmount] = useState("");
+  const [type, setType] = useState("");
+  const [labours, setLabours] = useState([]);
+  
+  const [date, setDate] = useState("");
+
+  useEffect(()  => {
+    axios.get("http://localhost:8080/labours/all")
+      .then(res => {
+        setLabours(res.data);
+      })
+      .catch(err => console.log(err));
+  }, [])
+
+  const addExpense = () => {
+
+    axios.post(`http://localhost:8080/transactions/add?labourId=${labourId}`, {
+      amount: Number(amount),
+     
+      type: type,
+      date: date
+    })
+    .then(res => {
+      alert("Expence Added");
+    })
+    .catch(err => console.log(err));
+
+  };
+
+  return (
+    <div>
+      <h2>Add Expense</h2>
+
+      <select onChange={(e)=>setLabourId(e.target.value)}>
+
+  <option value="">Select Labour</option>
+
+  {labours.map(l => (
+    <option key={l.id} value={l.id}>
+      {l.id} - {l.name}
+    </option>
+  ))}
+
+</select>
+
+<br/><br/>
+
+      <br/><br/>
+
+      <input
+        placeholder="Amount"
+        onChange={(e)=>setAmount(e.target.value)}
+      />
+
+      <br/><br/>
+
+
+      <input
+  type="date"
+  value={date}
+  onChange={(e) => setDate(e.target.value)}
+/>
+<br/><br/>
+
+<select onChange={(e) => setType(e.target.value)}>
+
+  <option value="">Select Expense Type</option>
+
+  <option value="TEA">1 - Tea</option>
+  <option value="FOOD">2 - Food</option>
+  <option value="RECHARGE">3 - Recharge</option>
+  <option value="ADVANCE">4 - Advance</option>
+
+</select>
+
+<br/><br/>
+
+      <button onClick={addExpense}>Add Expense</button>
+
+    </div>
+  );
+}
+
+export default ExpensePage;
