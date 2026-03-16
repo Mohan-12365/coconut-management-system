@@ -18,7 +18,7 @@ function LoginPage({ onLogin }) {
   }, [navigate]);
 
   const handleLogin = () => {
-    axios.post("http://localhost:8080/login", {
+    axios.post("https://coconut-management-system-2.onrender.com", {
       username,
       password
     })
