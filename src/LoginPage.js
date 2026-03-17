@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
+//import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import api from "./api";
 
@@ -19,7 +19,8 @@ function LoginPage({ onLogin }) {
   }, [navigate]);
 
   const handleLogin = () => {
-    api.post("/login", {
+    // axios.post("http://localhost:8080/login", {
+      api.post("/login", {
       username: username,
       password: password
     })
