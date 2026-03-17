@@ -8,7 +8,7 @@ import com.coconut.coconut_management.entity.User;
 import com.coconut.coconut_management.repository.UserRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     @Autowired
