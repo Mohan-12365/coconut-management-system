@@ -8,7 +8,7 @@ import com.coconut.coconut_management.entity.User;
 import com.coconut.coconut_management.repository.UserRepository;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://secure-login-hxjn7im0b-mohan-prasanths-projects.vercel.app/")
 public class AuthController {
 
     @Autowired
