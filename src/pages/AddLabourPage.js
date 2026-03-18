@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// redeploy fix
-
 import api from "../api";
 
 function AddLabourPage() {
