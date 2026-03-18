@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import api from "./api";
 
 function DashboardPage() {
@@ -9,7 +9,7 @@ function DashboardPage() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    //axios.get("http://localhost:8080/dashboard", {
+  
     api.post("/dashboard", {
       headers: {
         Authorization:  `Bearer ${token}`
