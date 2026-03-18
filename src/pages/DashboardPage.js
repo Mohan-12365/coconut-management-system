@@ -10,7 +10,7 @@ function DashboardPage() {
  
 
   
-    api.get("/dashboard", {
+    api.get("/dashboard")
    
   
       .then(res => setData(res.data))
