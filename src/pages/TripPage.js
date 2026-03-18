@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import api from "../api";
 
 function App() {
 
@@ -12,11 +13,11 @@ function App() {
 
   //Add Labour
   useEffect(() => {
-    axios.get("http://localhost:8080/labours/all")
+    api.get("/labours/all")
        .then(res => setLabours(res.data))
        .catch(err => console.log(err));
 
-    axios.get("http://localhost:8080/vehicles/all")
+    api.get("/vehicles/all")
        .then(res => setVehicles(res.data));
   }, []);
 
@@ -64,7 +65,7 @@ function App() {
 
     console.log(tripData);
 
-    axios.post("http://localhost:8080/trips/full", tripData)
+    api.post("/trips/full", tripData)
     .then(res => {
       alert("Trip Created Successfully");
 
