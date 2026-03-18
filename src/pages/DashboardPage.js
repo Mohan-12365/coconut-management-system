@@ -1,7 +1,7 @@
 
 
 import { useEffect, useState } from "react";
-import api from "./api";
+import api from "../api";
 
 function DashboardPage() {
   const [data, setData] = useState(null);
