@@ -7,14 +7,13 @@ function DashboardPage() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    //const token = localStorage.getItem("token");
 
   
-    api.post("/dashboard", {
-      headers: {
-        Authorization:  `Bearer ${token}`
-      }
-    })
+    api.get("/dashboard", {
+      //headers: {
+       // Authorization:  `Bearer ${token}`
+  
       .then(res => setData(res.data))
       .catch(err => console.log(err));
   }, []);
