@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+
+import api from "../api":
 
 function AddLabourPage() {
 
@@ -9,7 +10,7 @@ function AddLabourPage() {
 
   const addLabour = () => {
 
-    axios.post("http://localhost:8080/labours/add", {
+    api.post("/labours/add", {
       name: name,
       phone: phone,
       totalAdvance: Number(advance)
