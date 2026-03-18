@@ -22,7 +22,7 @@ function LoginPage({ onLogin }) {
 
     console.log("FULL URL:", api.defaults.baseURL + "/login");
     // axios.post("http://localhost:8080/login", {
-      api.post("/login", {
+      api.post("login", {
       username: username,
       password: password
     })
