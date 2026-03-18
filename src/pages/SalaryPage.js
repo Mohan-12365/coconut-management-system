@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import api from "../api";
 
 function SalaryPage() {
 
@@ -11,7 +12,7 @@ function SalaryPage() {
 
   // Fetch labour list
   useEffect(() => {
-    axios.get("http://localhost:8080/labours/all")
+    api.get("/labours/all")
       .then(res => setLabours(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -23,8 +24,8 @@ function SalaryPage() {
       return;
     }
 
-    axios.get(
-      `http://localhost:8080/salary/weekly/${selectedLabourId}?startDate=${startDate}&endDate=${endDate}`
+    api.get(
+      `/salary/weekly/${selectedLabourId}?startDate=${startDate}&endDate=${endDate}`
     )
       .then(res => setSalaryData(res.data))
       .catch(err => console.log(err));
