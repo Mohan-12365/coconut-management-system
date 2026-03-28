@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+//import axios from "axios";
+import api from "../api";
 
 function ExpenseHistory() {
 
@@ -8,7 +9,7 @@ function ExpenseHistory() {
 
   const loadHistory = () => {
 
-    axios.get(`http://localhost:8080/transactions/labour/${labourId}`)
+    api.get(`/transactions/labour/${labourId}`)
       .then(res => {
         setTransactions(res.data);
       })
