@@ -9,7 +9,7 @@ import java.util.List;
 import com.coconut.coconut_management.entity.Vehicle;
 import com.coconut.coconut_management.repository.VehicleRepository;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/vehicles")
 public class VehicleController {
