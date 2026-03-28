@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+//import axios from "axios";
+import api from "../api";
 
 function AddVehiclePage() {
 
@@ -8,7 +9,7 @@ function AddVehiclePage() {
 
   const addVehicle = () => {
 
-    axios.post("http://localhost:8080/vehicles/add", {
+    api.post("https://coconut-management-system-2.onrender.com", {
       vehicleNo: vehicleNo,
       fixedAmount: Number(amount)
     })
