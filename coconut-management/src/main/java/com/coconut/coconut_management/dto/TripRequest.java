@@ -50,7 +50,7 @@ public class TripRequest {
 		}
 		
 		public void setDriver(boolean isDriver) {
-			isDriver = driver;
+			this.isDriver = isDriver;
 		}
 	}
 }
