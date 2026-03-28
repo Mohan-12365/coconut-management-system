@@ -9,7 +9,7 @@ function AddVehiclePage() {
 
   const addVehicle = () => {
 
-    api.post("https://coconut-management-system-2.onrender.com", {
+    api.post("/vehicles/add", {
       vehicleNo: vehicleNo,
       fixedAmount: Number(amount)
     })
