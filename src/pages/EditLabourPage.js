@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+//import axios from "axios";
+import api from "../api";
 import { useParams, useNavigate } from "react-router-dom";
 
 function EditLabourPage() {
@@ -13,7 +14,7 @@ function EditLabourPage() {
 
   useEffect(() => {
 
-    axios.get(`http://localhost:8080/labours/${id}`)
+    api.get(`/labours/${id}`)
       .then(res => {
         setName(res.data.name);
         setPhone(res.data.phone);
@@ -24,7 +25,7 @@ function EditLabourPage() {
 
   const updateLabour = () => {
 
-    axios.put(`http://localhost:8080/labours/update/${id}`, {
+    api.put(`/labours/update/${id}`, {
       name: name,
       phone: phone,
       totalAdvance: advance
