@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
+//import axios from "axios";
+import api from "../api";
 
 function ExpensePage() {
 
@@ -12,7 +13,7 @@ function ExpensePage() {
   const [date, setDate] = useState("");
 
   useEffect(()  => {
-    axios.get("http://localhost:8080/labours/all")
+    api.get("/labours/all")
       .then(res => {
         setLabours(res.data);
       })
@@ -21,7 +22,7 @@ function ExpensePage() {
 
   const addExpense = () => {
 
-    axios.post(`http://localhost:8080/transactions/add?labourId=${labourId}`, {
+    api.post(`/transactions/add?labourId=${labourId}`, {
       amount: Number(amount),
      
       type: type,
