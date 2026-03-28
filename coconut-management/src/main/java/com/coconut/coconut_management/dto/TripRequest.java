@@ -35,7 +35,7 @@ public class TripRequest {
 	//Inner class
 	public static class LabourRequest {
 		private Long labourId;
-		private boolean driver;
+		private boolean isDriver;
 		
 		public Long getLabourId() {
 			return labourId;
@@ -45,12 +45,12 @@ public class TripRequest {
 			this.labourId = labourId;
 		}
 		
-		public boolean driver() {
-			return driver;
+		public boolean isDriver() {
+			return isDriver;
 		}
 		
-		public void setDriver(boolean driver) {
-			driver = driver;
+		public void setDriver(boolean isDriver) {
+			isDriver = driver;
 		}
 	}
 }
