@@ -13,7 +13,7 @@ import com.coconut.coconut_management.repository.LabourDailyTransactionRepositor
 import com.coconut.coconut_management.repository.TripLabourRepository;
 import com.coconut.coconut_management.service.TripService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/salary")
 public class SalaryController {
