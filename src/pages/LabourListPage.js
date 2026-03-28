@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+//import axios from "axios";
+import api from "../api";
 import { useNavigate } from "react-router-dom";
 
 function LabourListPage() {
@@ -8,7 +9,7 @@ function LabourListPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:8080/labours/all")
+    api.get("/labours/all")
       .then(res => setLabours(res.data))
       .catch(err => console.log(err));
   }, []);
