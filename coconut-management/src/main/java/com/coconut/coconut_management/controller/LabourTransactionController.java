@@ -8,7 +8,7 @@ import java.util.List;
 import com.coconut.coconut_management.entity.*;
 import com.coconut.coconut_management.repository.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/transactions")
 public class LabourTransactionController {
