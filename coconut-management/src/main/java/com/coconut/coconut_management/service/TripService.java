@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.coconut.coconut_management.dto.TripRequest;
 import com.coconut.coconut_management.dto.WeeklySalaryResponse;
+import com.coconut.coconut_management.dto.TripLabourDTO;
 import com.coconut.coconut_management.entity.Labour;
 import com.coconut.coconut_management.entity.LabourDailyTransaction;
 import com.coconut.coconut_management.entity.Trip;
