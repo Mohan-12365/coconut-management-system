@@ -79,6 +79,26 @@ function SalaryPage() {
         </div>
       )}
 
+{salaryData && selectedLabour && (
+  <button onClick={() => {
+
+    const message = `Salary Report
+
+Name: ${selectedLabour.name}
+From: ${startDate}
+To: ${endDate}
+
+Total Wage: ₹${salaryData.totalWages}
+Expense: ₹${salaryData.totalExpense}
+Final Salary: ₹${salaryData.finalSalary}`;
+
+    const url = `https://wa.me/91${selectedLabour.phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+
+  }}>
+    Send WhatsApp
+  </button>
+)}
     </div>
   );
 }
