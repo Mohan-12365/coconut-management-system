@@ -13,6 +13,7 @@ import com.coconut.coconut_management.entity.Vehicle;
 import com.coconut.coconut_management.repository.TripRepository;
 import com.coconut.coconut_management.repository.VehicleRepository;
 import com.coconut.coconut_management.dto.TripRequest;
+import com.coconut.coconut_management.dto.TripLabourDTO;
 import com.coconut.coconut_management.service.TripService;
 
 @CrossOrigin("*")
