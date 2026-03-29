@@ -37,5 +37,13 @@ public interface TripLabourRepository extends JpaRepository<TripLabour, Long> {
 			""")
 			List<Object[]> getMonthlySalary(@Param("year") int year,
 			                                 @Param("month") int month);
+
+	@Query("SELECT new com.coconut.coconut_management.dto.TripLabourDTO(" +
+       "l.name, l.phone, tl.wage, tl.driver) " +
+       "FROM TripLabour tl " +
+       "JOIN tl.labour l " +
+       "JOIN tl.trip t " +
+       "WHERE t.date = :date")
+List<TripLabourDTO> findTripsByDate(@Param("date") LocalDate date);
 	
 }
