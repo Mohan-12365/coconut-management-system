@@ -24,7 +24,8 @@ public class TripLabour {
 	private Labour labour;
 	
 	@Column(name = "is_driver", nullable = false)
-	private boolean isDriver;
+	//private boolean isDriver;
+	private Boolean driver;
 	
 	@Column(nullable = false)
 	private double wage;
@@ -51,12 +52,12 @@ public class TripLabour {
 		this.labour = labour;
 	}
 	
-	public boolean isDriver() {
-		return isDriver;
+	public boolean getDriver() {
+		return driver;
 	}
 	
 	public void setDriver(boolean driver) {
-		isDriver = driver;
+		this.driver = driver;
 	}
 	
 	public double getWage() {
