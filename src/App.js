@@ -15,6 +15,7 @@ import AddLabourPage from "./pages/AddLabourPage";
 import AddVehiclePage from "./pages/AddVehiclePage";
 import LabourListPage from "./pages/LabourListPage";
 import EditLabourPage from "./pages/EditLabourPage";
+import HistoryPage from "./pages/HistoryPage";
 
 function App() {
 
@@ -41,8 +42,9 @@ function App() {
           <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
           <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
           <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
+            <Link to="/history" style={{ marginRight: "15px" }}>Trip History</Link>
           <Link to="/labours">Labours</Link>
-            
+
         </nav>
         )}
         {/* <SalaryReport/>
