@@ -131,6 +131,29 @@ function App() {
         
       <br/>
       <button onClick={createTrip}>Create</button>
+
+    <h3>Send WhatsApp</h3>
+
+{tripResult.map((labour, index) => (
+  <div key={index}>
+    {labour.name} - ₹{labour.wage}
+
+    <button onClick={() => {
+
+      const message = `Trip Created
+
+Date: ${date}
+Wage: ₹${labour.wage}
+${labour.driver ? "Driver 🚗" : ""}`;
+
+      const url = `https://wa.me/91${labour.phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+
+    }}>
+      Send WhatsApp
+    </button>
+  </div>
+))}
     </div>
   );
 }
