@@ -42,9 +42,6 @@ public class TripService {
 	@Autowired
 	private LabourDailyTransactionRepository labourDailyTransactionRepository;
 
-	@Autowired
-    private TripLabourRepository tripLabourRepository;
-
 	
 	// public String createFullTrip(TripRequest request) {
 		
@@ -165,7 +162,7 @@ public class TripService {
 	}
 
 	public List<TripLabourDTO> getTripsByDate(LocalDate date) {
-    return tripRepository.findTripsByDate(date);
+    return tripLabourRepository.findTripsByDate(date);
 }
 	public WeeklySalaryResponse calculateWeeklySalary(Long labourId) {
 		
