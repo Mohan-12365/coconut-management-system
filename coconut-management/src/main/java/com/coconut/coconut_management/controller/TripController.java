@@ -43,7 +43,7 @@ public class TripController {
 	}
 	
 	@PostMapping("/full")
-	public  List<Map<String, Object>>(@RequestBody TripRequest request) {
+	public List<Map<String, Object>> createFullTrip(@RequestBody TripRequest request) {
 		return tripService.createFullTrip(request);
 	}
 	
