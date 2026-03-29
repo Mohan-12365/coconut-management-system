@@ -39,46 +39,94 @@ public class TripService {
 	@Autowired
 	private LabourDailyTransactionRepository labourDailyTransactionRepository;
 	
-	public String createFullTrip(TripRequest request) {
+	// public String createFullTrip(TripRequest request) {
 		
-		//Get Vehicle
-		Vehicle vehicle = vehicleRepository.findById(request.getVehicleId())
-				.orElseThrow(()  ->new RuntimeException("Vehicle not found"));
+	// 	//Get Vehicle
+	// 	Vehicle vehicle = vehicleRepository.findById(request.getVehicleId())
+	// 			.orElseThrow(()  ->new RuntimeException("Vehicle not found"));
 		
-		//Create Trip
-		Trip trip = new Trip();
-		trip.setVehicle(vehicle);
-		trip.setDate(LocalDate.parse(request.getDate()));
-		trip = tripRepository.save(trip);
+	// 	//Create Trip
+	// 	Trip trip = new Trip();
+	// 	trip.setVehicle(vehicle);
+	// 	trip.setDate(LocalDate.parse(request.getDate()));
+	// 	trip = tripRepository.save(trip);
 		
-		//Calculate base wage
-		int totalAmount = vehicle.getFixedAmount();
-		int labourCount = request.getLabours().size();
-		int baseWage = totalAmount / labourCount;
+	// 	//Calculate base wage
+	// 	int totalAmount = vehicle.getFixedAmount();
+	// 	int labourCount = request.getLabours().size();
+	// 	int baseWage = totalAmount / labourCount;
 		
-		//Save TripLabour for each labour
-		for (TripRequest.LabourRequest lr : request.getLabours()) {
+	// 	//Save TripLabour for each labour
+	// 	for (TripRequest.LabourRequest lr : request.getLabours()) {
 			
-			Labour labour = labourRepository.findById(lr.getLabourId())
-					.orElseThrow(()  -> new RuntimeException("Labour not found"));
+	// 		Labour labour = labourRepository.findById(lr.getLabourId())
+	// 				.orElseThrow(()  -> new RuntimeException("Labour not found"));
 			
-			double finalWage = baseWage;
+	// 		double finalWage = baseWage;
 			
-			if (lr.isDriver()) {
-				finalWage += DRIVER_EXTRA;
-			}
+	// 		if (lr.isDriver()) {
+	// 			finalWage += DRIVER_EXTRA;
+	// 		}
 			
-			TripLabour tripLabour = new TripLabour();
-			tripLabour.setTrip(trip);
-			tripLabour.setLabour(labour);
-			tripLabour.setDriver(lr.isDriver());
-			tripLabour.setWage(finalWage);
+	// 		TripLabour tripLabour = new TripLabour();
+	// 		tripLabour.setTrip(trip);
+	// 		tripLabour.setLabour(labour);
+	// 		tripLabour.setDriver(lr.isDriver());
+	// 		tripLabour.setWage(finalWage);
 			
-			tripLabourRepository.save(tripLabour);
-		}
+	// 		tripLabourRepository.save(tripLabour);
+	// 	}
 		
-		return "Trip created successfully with wages calculated!";
-	}
+	// 	//return "Trip created successfully with wages calculated!";
+	// 	List<Map<String, Object>> result = new ArrayList<>();
+	// }
+
+	public List<Map<String, Object>> createFullTrip(TripRequest request) {
+
+    Vehicle vehicle = vehicleRepository.findById(request.getVehicleId())
+            .orElseThrow(() -> new RuntimeException("Vehicle not found"));
+
+    Trip trip = new Trip();
+    trip.setVehicle(vehicle);
+    trip.setDate(LocalDate.parse(request.getDate()));
+    trip = tripRepository.save(trip);
+
+    int totalAmount = vehicle.getFixedAmount();
+    int labourCount = request.getLabours().size();
+    int baseWage = totalAmount / labourCount;
+
+    List<Map<String, Object>> result = new ArrayList<>();
+
+    for (TripRequest.LabourRequest lr : request.getLabours()) {
+
+        Labour labour = labourRepository.findById(lr.getLabourId())
+                .orElseThrow(() -> new RuntimeException("Labour not found"));
+
+        double finalWage = baseWage;
+
+        if (lr.isDriver()) {
+            finalWage += DRIVER_EXTRA;
+        }
+
+        TripLabour tripLabour = new TripLabour();
+        tripLabour.setTrip(trip);
+        tripLabour.setLabour(labour);
+        tripLabour.setDriver(lr.isDriver());
+        tripLabour.setWage(finalWage);
+
+        tripLabourRepository.save(tripLabour);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("name", labour.getName());
+        data.put("phone", labour.getPhone());
+        data.put("wage", finalWage);
+        data.put("driver", lr.isDriver());
+
+        result.add(data);
+    }
+
+    return result;
+}
 
 	
 	public String calculateWeeklySalary(Long labourId, String startDate, String endDate) {
