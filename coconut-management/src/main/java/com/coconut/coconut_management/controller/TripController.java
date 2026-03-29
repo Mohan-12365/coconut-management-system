@@ -48,6 +48,11 @@ public class TripController {
 	public List<Map<String, Object>> createFullTrip(@RequestBody TripRequest request) {
 		return tripService.createFullTrip(request);
 	}
+
+	@GetMapping("/by-date")
+public List<TripLabourDTO> getTripsByDate(@RequestParam String date) {
+    return tripService.getTripsByDate(LocalDate.parse(date));
+}
 	
 	//Get All Trips
 	@GetMapping("/all")
