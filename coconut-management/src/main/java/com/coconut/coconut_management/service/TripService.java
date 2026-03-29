@@ -41,6 +41,10 @@ public class TripService {
 	
 	@Autowired
 	private LabourDailyTransactionRepository labourDailyTransactionRepository;
+
+	@Autowired
+    private TripLabourRepository tripLabourRepository;
+
 	
 	// public String createFullTrip(TripRequest request) {
 		
