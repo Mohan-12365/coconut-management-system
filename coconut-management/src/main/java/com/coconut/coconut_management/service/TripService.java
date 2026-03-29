@@ -159,7 +159,10 @@ public class TripService {
 				", Total Expense: " + totalExpense +
 				", Final Payable: " + finalAmount;
 	}
-	
+
+	public List<TripLabourDTO> getTripsByDate(LocalDate date) {
+    return tripRepository.findTripsByDate(date);
+}
 	public WeeklySalaryResponse calculateWeeklySalary(Long labourId) {
 		
 		//Get all wages for that labour
