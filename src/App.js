@@ -40,7 +40,7 @@ function App() {
           <Link to="/expense" style={{ marginRight: "15px" }}>Expense</Link>
           <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
           <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
-          <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
+          <Link to="/add-vehicle">Add Vehicle</Link>
           <Link to="/labours">Labours</Link>
             
         </nav>
