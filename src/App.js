@@ -42,6 +42,15 @@ function App() {
           <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
           <Link to="/add-vehicle">Add Vehicle</Link>
           <Link to="/labours">Labours</Link>
+            <button onClick={() => {
+  const phone = "9876543210";   // your test number
+  const message = "Hello from my app";
+
+  const url = `https://wa.me/91${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}}>
+  Test WhatsApp
+</button>
         </nav>
         )}
         {/* <SalaryReport/>
