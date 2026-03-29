@@ -11,6 +11,7 @@ function App() {
   const [selectedVehicleId, setSelectedVehicleId] = useState(null);
   const [date, setDate] = useState("");
   const [tripResult, setTripResult] = useState([]);
+  const [savedDate, setSavedDate] = useState("");
 
   //Add Labour
   useEffect(() => {
@@ -66,7 +67,6 @@ function App() {
 
     console.log(tripData);
 
-    const currentDate = date;
     
     api.post("/trips/full", tripData)
     .then(res => {
@@ -144,7 +144,7 @@ function App() {
 
       const message = `Trip Created
 
-Date: ${currentDate}
+Date: ${savedDate}
 Wage: ₹${labour.wage}
 ${labour.driver ? "Driver 🚗" : ""}`;
 
