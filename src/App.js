@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import TripPage from "./pages/TripPage";
 import SalaryPage from "./pages/SalaryPage";
 import DashboardPage from "./pages/DashboardPage";
-import TripHistory from "./TripHistory";
+//import TripHistory from "./TripHistory";
 import SalaryReport from "./SalaryReport";
 import LoginPage from "./LoginPage";
 import ProtectedRoute from "./ProtectedRoute";
