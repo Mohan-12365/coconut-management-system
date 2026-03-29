@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "./api"; // axios config
+import api from "./api";
 
 function App() {
   const [date, setDate] = useState("");
@@ -24,6 +24,17 @@ Thanks!`;
     window.open(url, "_blank");
   };
 
+  const sendAll = () => {
+    let message = `📅 Date: ${date}\n\n`;
+
+    results.forEach(l => {
+      message += `${l.name} - ₹${l.wage} ${l.driver ? "(Driver)" : ""}\n`;
+    });
+
+    const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>Trip History</h2>
@@ -37,6 +48,13 @@ Thanks!`;
       <button onClick={fetchTrips}>Search</button>
 
       <hr />
+
+      {/* ✅ Send All only once */}
+      {results.length > 0 && (
+        <button onClick={sendAll} style={{ marginBottom: "15px" }}>
+          Send All WhatsApp
+        </button>
+      )}
 
       {results.map((labour, index) => (
         <div key={index} style={{ margin: "10px", border: "1px solid gray", padding: "10px" }}>
