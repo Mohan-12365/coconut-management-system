@@ -144,7 +144,8 @@ function App() {
 
     <button onClick={() => {
 
-      const message = `Trip Created
+      const message = `Hi ${labour.name},
+      Your Trip is Calculated.
 
 Date: ${savedDate}
 Wage: ₹${labour.wage}
