@@ -40,7 +40,7 @@ public interface TripLabourRepository extends JpaRepository<TripLabour, Long> {
 			                                 @Param("month") int month);
 
 	@Query("SELECT new com.coconut.coconut_management.dto.TripLabourDTO(" +
-       "l.name, l.phone, tl.wage, tl.driver) " +
+       "l.name, l.mobile, tl.wage, tl.driver) " +
        "FROM TripLabour tl " +
        "JOIN tl.labour l " +
        "JOIN tl.trip t " +
