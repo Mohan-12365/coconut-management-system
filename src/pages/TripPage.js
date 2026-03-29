@@ -66,6 +66,8 @@ function App() {
 
     console.log(tripData);
 
+    const currentDate = date;
+    
     api.post("/trips/full", tripData)
     .then(res => {
 
@@ -142,7 +144,7 @@ function App() {
 
       const message = `Trip Created
 
-Date: ${date}
+Date: ${currentDate}
 Wage: ₹${labour.wage}
 ${labour.driver ? "Driver 🚗" : ""}`;
 
