@@ -10,6 +10,7 @@ function App() {
   const [vehicles, setVehicles] = useState([]);
   const [selectedVehicleId, setSelectedVehicleId] = useState(null);
   const [date, setDate] = useState("");
+  const [tripResult, setTripResult] = useState([]);
 
   //Add Labour
   useEffect(() => {
@@ -67,6 +68,10 @@ function App() {
 
     api.post("/trips/full", tripData)
     .then(res => {
+
+      console.log("DATA:", res.data);
+       setTripResult(res.data);
+      
       alert("Trip Created Successfully");
 
       setSelectedVehicleId(null);
