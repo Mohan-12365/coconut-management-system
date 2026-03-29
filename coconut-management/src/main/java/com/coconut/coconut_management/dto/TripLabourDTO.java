@@ -5,8 +5,8 @@ public class TripLabourDTO {
 
     private String name;
     private String phone;
-    private double wage;
-    private boolean driver;
+    private Double wage;
+    private Boolean driver;
 
     public TripLabourDTO(String name, String phone, double wage, boolean driver) {
         this.name = name;
