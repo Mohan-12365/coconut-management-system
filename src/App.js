@@ -57,7 +57,7 @@ function App() {
           <Route path="/trip" element={<ProtectedRoute><TripPage /></ProtectedRoute>} />
           <Route path="/salary" element={<ProtectedRoute><SalaryPage /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} />
-          <Route path="/history" element={<ProtectedRoute><TripHistory/></ProtectedRoute>} />
+         <Route path="/history" element={<ProtectedRoute><HistoryPage/></ProtectedRoute>} />
           <Route path="/salary-report" element={<ProtectedRoute><SalaryReport/></ProtectedRoute>} />
           <Route path="/expense" element={<ProtectedRoute><ExpensePage/></ProtectedRoute>} />
           <Route path="/expense-history" element={<ProtectedRoute><ExpenseHistory/></ProtectedRoute>} />
