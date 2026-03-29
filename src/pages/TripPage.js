@@ -73,7 +73,7 @@ function App() {
 
       console.log("DATA:", res.data);
        setTripResult(res.data);
-      
+        setSavedDate(date);
       alert("Trip Created Successfully");
 
       setSelectedVehicleId(null);
