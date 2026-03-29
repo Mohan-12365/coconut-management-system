@@ -40,26 +40,9 @@ function App() {
           <Link to="/expense" style={{ marginRight: "15px" }}>Expense</Link>
           <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
           <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
-          <Link to="/add-vehicle">Add Vehicle</Link>
+          <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
           <Link to="/labours">Labours</Link>
-            <button onClick={() => {
-  const phone = "9865459794";   // your number
-
-  const date = "2026-03-29";
-  const vehicle = "TN-01-1234";
-  const wage = 600;
-
-  const message = `Trip Created
-
-Date: ${date}
-Vehicle: ${vehicle}
-Wage: ₹${wage}`;
-
-  const url = `https://wa.me/91${phone}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-}}>
-  Test Dynamic WhatsApp
-</button>
+            
         </nav>
         )}
         {/* <SalaryReport/>
