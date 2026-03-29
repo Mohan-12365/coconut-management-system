@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.coconut.coconut_management.entity.TripLabour;
+import com.coconut.coconut_management.dto.TripLabourDTO;
 
 
 public interface TripLabourRepository extends JpaRepository<TripLabour, Long> {
