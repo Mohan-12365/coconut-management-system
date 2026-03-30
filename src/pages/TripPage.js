@@ -226,6 +226,7 @@ ${labour.driver ? "Driver 🚗" : ""}`;
   
 ))}
     </div>
+  </div>
   );
 }
 
