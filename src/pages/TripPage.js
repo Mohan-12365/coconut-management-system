@@ -198,8 +198,8 @@ function App() {
       Create Trip
     </button>
 
-  </div>
-</div>
+  
+
 
     <h3>Send WhatsApp</h3>
 
