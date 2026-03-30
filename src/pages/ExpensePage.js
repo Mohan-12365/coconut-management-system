@@ -9,6 +9,7 @@ function ExpensePage() {
 
   //const [labourId, setLabourId] = useState("");
   const [selectedLabours, setSelectedLabours] = useState([]);
+  const [customAmounts, setCustomAmounts] = useState({});
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("");
   const [labours, setLabours] = useState([]);
@@ -38,7 +39,7 @@ function ExpensePage() {
 
   // };
 
-  const addExpense = () => {
+ const addExpense = () => {
 
   if (selectedLabours.length === 0) {
     alert("Please select labours");
@@ -50,38 +51,74 @@ function ExpensePage() {
     return;
   }
 
-  const splitAmount = Number(amount) / selectedLabours.length;
+  // 👉 Check if custom amounts entered
+  const isCustom = Object.keys(customAmounts).length > 0;
 
-  Promise.all(
-    selectedLabours.map(labourId =>
-      api.post(`/transactions/add?labourId=${labourId}`, {
-        amount: splitAmount,
-        type: type,
-        date: date
-      })
+  if (isCustom) {
+
+    // 🔥 Validate total
+    const totalCustom = Object.values(customAmounts)
+      .reduce((sum, val) => sum + Number(val || 0), 0);
+
+    if (totalCustom !== Number(amount)) {
+      alert("Custom total must match total amount");
+      return;
+    }
+
+    // 🔥 Send custom amounts
+    Promise.all(
+      selectedLabours.map(labourId =>
+        api.post(`/transactions/add?labourId=${labourId}`, {
+          amount: Number(customAmounts[labourId] || 0),
+          type: type,
+          date: date
+        })
+      )
     )
-  )
-  .then(() => {
-    alert("Expense Split & Added Successfully");
-    
-    // reset fields
-    setSelectedLabours([]);
-    setAmount("");
-    setType("");
-    setDate("");
-  })
-  .catch(err => console.log(err));
-};
+    .then(() => {
+      alert("Custom Expense Added Successfully");
 
+      setSelectedLabours([]);
+      setCustomAmounts({});
+      setAmount("");
+      setType("");
+      setDate("");
+    });
+
+  } else {
+
+    // ✅ Default equal split
+    const splitAmount = Number(amount) / selectedLabours.length;
+
+    Promise.all(
+      selectedLabours.map(labourId =>
+        api.post(`/transactions/add?labourId=${labourId}`, {
+          amount: splitAmount,
+          type: type,
+          date: date
+        })
+      )
+    )
+    .then(() => {
+      alert("Expense Split Successfully");
+
+      setSelectedLabours([]);
+      setAmount("");
+      setType("");
+      setDate("");
+    });
+  }
+};
   return (
     <div>
       <h2>Add Expense</h2>
 
       
-    <h3>Select Labours</h3>
+   <h3>Select Labours</h3>
 
 {labours.map(l => (
   <div key={l.id}>
+    
     <input
       type="checkbox"
       checked={selectedLabours.includes(l.id)}
@@ -93,7 +130,25 @@ function ExpensePage() {
         }
       }}
     />
+
     {l.name}
+
+    {/* Custom amount input */}
+    {selectedLabours.includes(l.id) && (
+      <input
+        type="number"
+        placeholder="Enter amount"
+        value={customAmounts[l.id] || ""}
+        onChange={(e) => {
+          setCustomAmounts({
+            ...customAmounts,
+            [l.id]: e.target.value
+          });
+        }}
+        style={{ marginLeft: "10px" }}
+      />
+    )}
+
   </div>
 ))}
 
