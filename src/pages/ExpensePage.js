@@ -7,7 +7,8 @@ import api from "../api";
 
 function ExpensePage() {
 
-  const [labourId, setLabourId] = useState("");
+  //const [labourId, setLabourId] = useState("");
+  const [selectedLabours, setSelectedLabours] = useState([]);
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("");
   const [labours, setLabours] = useState([]);
@@ -76,7 +77,25 @@ function ExpensePage() {
     <div>
       <h2>Add Expense</h2>
 
-      <select onChange={(e)=>setLabourId(e.target.value)}>
+      // <select onChange={(e)=>setLabourId(e.target.value)}>
+    <h3>Select Labours</h3>
+
+{labours.map(l => (
+  <div key={l.id}>
+    <input
+      type="checkbox"
+      checked={selectedLabours.includes(l.id)}
+      onChange={() => {
+        if (selectedLabours.includes(l.id)) {
+          setSelectedLabours(selectedLabours.filter(id => id !== l.id));
+        } else {
+          setSelectedLabours([...selectedLabours, l.id]);
+        }
+      }}
+    />
+    {l.name}
+  </div>
+))}
 
   <option value="">Select Labour</option>
 
