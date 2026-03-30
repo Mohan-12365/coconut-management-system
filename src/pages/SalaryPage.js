@@ -35,76 +35,173 @@ function SalaryPage() {
       .catch(err => console.log(err));
   };
 
+//   return (
+//     <div>
+
+//       <h2>Weekly Salary Report</h2>
+
+//       {/* Labour Dropdown */}
+//       <select
+//         value={selectedLabourId}
+//         onChange={(e) => setSelectedLabourId(e.target.value)}
+//       >
+//         <option value="">Select Labour</option>
+//         {labours.map(labour => (
+//           <option key={labour.id} value={labour.id}>
+//             {labour.name}
+//           </option>
+//         ))}
+//       </select>
+
+//       <br /><br />
+
+//       {/* Date Range */}
+//       <input
+//         type="date"
+//         value={startDate}
+//         onChange={(e) => setStartDate(e.target.value)}
+//       />
+
+//       <input
+//         type="date"
+//         value={endDate}
+//         onChange={(e) => setEndDate(e.target.value)}
+//       />
+
+//       <br /><br />
+
+//       <button onClick={fetchSalary}>Get Salary</button>
+
+//       {/* Salary Result */}
+//       {salaryData && (
+//         <div style={{ marginTop: "20px" }}>
+//           <p><strong>Total Wages:</strong> ₹{salaryData.totalWages}</p>
+//           <p><strong>Total Expense:</strong> ₹{salaryData.totalExpense}</p>
+//           <p style={{ fontSize: "18px", fontWeight: "bold" }}>
+//             Final Salary: ₹{salaryData.finalSalary}
+//           </p>
+//         </div>
+//       )}
+
+// {salaryData && selectedLabour && (
+//   <button onClick={() => {
+
+//     const message = `Salary Report
+
+// Name: ${selectedLabour.name}
+// From: ${startDate}
+// To: ${endDate}
+
+// Total Wage: ₹${salaryData.totalWages}
+// Expense: ₹${salaryData.totalExpense}
+// Final Salary: ₹${salaryData.finalSalary}`;
+
+//     const url = `https://wa.me/91${selectedLabour.phone}?text=${encodeURIComponent(message)}`;
+//     window.open(url, "_blank");
+
+//   }}>
+//     Send WhatsApp
+//   </button>
+// )}
+//     </div>
+//   );
+
   return (
-    <div>
+  <div className="container mt-4">
 
-      <h2>Weekly Salary Report</h2>
+    <div className="card shadow p-4">
 
-      {/* Labour Dropdown */}
-      <select
-        value={selectedLabourId}
-        onChange={(e) => setSelectedLabourId(e.target.value)}
-      >
-        <option value="">Select Labour</option>
-        {labours.map(labour => (
-          <option key={labour.id} value={labour.id}>
-            {labour.name}
-          </option>
-        ))}
-      </select>
+      <h2 className="text-center mb-4">💰 Salary Report</h2>
 
-      <br /><br />
+      {/* Labour */}
+      <div className="mb-3">
+        <label>Select Labour</label>
+        <select
+          className="form-control"
+          value={selectedLabourId}
+          onChange={(e) => setSelectedLabourId(e.target.value)}
+        >
+          <option value="">Select Labour</option>
+          {labours.map(labour => (
+            <option key={labour.id} value={labour.id}>
+              {labour.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      {/* Date Range */}
-      <input
-        type="date"
-        value={startDate}
-        onChange={(e) => setStartDate(e.target.value)}
-      />
+      {/* Dates */}
+      <div className="mb-3">
+        <label>Start Date</label>
+        <input
+          type="date"
+          className="form-control"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+        />
+      </div>
 
-      <input
-        type="date"
-        value={endDate}
-        onChange={(e) => setEndDate(e.target.value)}
-      />
+      <div className="mb-3">
+        <label>End Date</label>
+        <input
+          type="date"
+          className="form-control"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+        />
+      </div>
 
-      <br /><br />
+      <button className="btn btn-primary w-100" onClick={fetchSalary}>
+        Get Salary
+      </button>
 
-      <button onClick={fetchSalary}>Get Salary</button>
-
-      {/* Salary Result */}
+      {/* Result */}
       {salaryData && (
-        <div style={{ marginTop: "20px" }}>
+        <div className="mt-4 border p-3 rounded">
+
           <p><strong>Total Wages:</strong> ₹{salaryData.totalWages}</p>
           <p><strong>Total Expense:</strong> ₹{salaryData.totalExpense}</p>
-          <p style={{ fontSize: "18px", fontWeight: "bold" }}>
+
+          <h5 className="text-success">
             Final Salary: ₹{salaryData.finalSalary}
-          </p>
-        </div>
-      )}
+          </h5>
 
-{salaryData && selectedLabour && (
-  <button onClick={() => {
+          {/* WhatsApp Button */}
+          <button
+            className="btn btn-success mt-3 w-100"
+            onClick={() => {
 
-    const message = `Salary Report
+              const selectedLabour = labours.find(
+                l => l.id == selectedLabourId
+              );
 
-Name: ${selectedLabour.name}
+              const message = `Hi ${selectedLabour.name},
+
+Salary Report
+
 From: ${startDate}
 To: ${endDate}
 
 Total Wage: ₹${salaryData.totalWages}
 Expense: ₹${salaryData.totalExpense}
+
 Final Salary: ₹${salaryData.finalSalary}`;
 
-    const url = `https://wa.me/91${selectedLabour.phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+              const url = `https://wa.me/91${selectedLabour.phone}?text=${encodeURIComponent(message)}`;
+              window.open(url, "_blank");
 
-  }}>
-    Send WhatsApp
-  </button>
-)}
+            }}
+          >
+            Send WhatsApp
+          </button>
+
+        </div>
+      )}
+
     </div>
-  );
+
+  </div>
+);
 }
 
 export default SalaryPage;
