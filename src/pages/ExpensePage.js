@@ -20,20 +20,55 @@ function ExpensePage() {
       .catch(err => console.log(err));
   }, [])
 
+  // const addExpense = () => {
+
+  //   api.post(`/transactions/add?labourId=${labourId}`, {
+  //     amount: Number(amount),
+     
+  //     type: type,
+  //     date: date
+  //   })
+  //   .then(res => {
+  //     alert("Expence Added");
+  //   })
+  //   .catch(err => console.log(err));
+
+  // };
+
   const addExpense = () => {
 
-    api.post(`/transactions/add?labourId=${labourId}`, {
-      amount: Number(amount),
-     
-      type: type,
-      date: date
-    })
-    .then(res => {
-      alert("Expence Added");
-    })
-    .catch(err => console.log(err));
+  if (selectedLabours.length === 0) {
+    alert("Please select labours");
+    return;
+  }
 
-  };
+  if (!amount || !date || !type) {
+    alert("Fill all fields");
+    return;
+  }
+
+  const splitAmount = Number(amount) / selectedLabours.length;
+
+  Promise.all(
+    selectedLabours.map(labourId =>
+      api.post(`/transactions/add?labourId=${labourId}`, {
+        amount: splitAmount,
+        type: type,
+        date: date
+      })
+    )
+  )
+  .then(() => {
+    alert("Expense Split & Added Successfully");
+    
+    // reset fields
+    setSelectedLabours([]);
+    setAmount("");
+    setType("");
+    setDate("");
+  })
+  .catch(err => console.log(err));
+};
 
   return (
     <div>
