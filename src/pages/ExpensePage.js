@@ -97,15 +97,15 @@ function ExpensePage() {
   </div>
 ))}
 
-  <option value="">Select Labour</option>
+//   <option value="">Select Labour</option>
 
-  {labours.map(l => (
-    <option key={l.id} value={l.id}>
-      {l.id} - {l.name}
-    </option>
-  ))}
+//   {labours.map(l => (
+//     <option key={l.id} value={l.id}>
+//       {l.id} - {l.name}
+//     </option>
+//   ))}
 
-</select>
+// </select>
 
 <br/><br/>
 
