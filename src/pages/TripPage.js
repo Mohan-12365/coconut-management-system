@@ -87,54 +87,119 @@ function App() {
  };
 
   return (
-    <div style={{ padding: "20px"  }}>
-      <h1>Coconut Management System</h1>
+//     <div style={{ padding: "20px"  }}>
+//       <h1>Coconut Management System</h1>
 
-      <h2>Create Trip</h2>
+//       <h2>Create Trip</h2>
 
-      {/* <input
-      placeholder="Vehicle ID"
-      onChange={(e) => setVehiclesId(e.target.value)}
-      /> */}
+//       {/* <input
+//       placeholder="Vehicle ID"
+//       onChange={(e) => setVehiclesId(e.target.value)}
+//       /> */}
 
-      <select onChange={(e) => setSelectedVehicleId(Number(e.target.value))}>
-        <option value = "">Select Vehicle</option>
+//       <select onChange={(e) => setSelectedVehicleId(Number(e.target.value))}>
+//         <option value = "">Select Vehicle</option>
+//         {vehicles.map(vehicle => (
+//           <option key={vehicle.id} value={vehicle.id}>
+//             {vehicle.vehicleNo}
+//           </option>
+//         ))}
+//       </select>
+//       <br/><br/>
+
+//       <h3>Seleted Labours</h3>
+
+//       {labours.map(labour => (
+//         <div key={labour.id}>
+//           <input
+//           type="checkbox"
+//           checked={selectedLabours.includes(labour.id)}
+//           onChange={() => handleLabourSelect(labour.id)}
+//           />
+//           {labour.name}
+
+//           <input
+//           type="radio"
+//           name="driver"
+//           onChange={()  => setDriverId(labour.id)}
+//           /> Driver 
+//           </div>
+//       ))}
+
+//      <input
+//   type="date"
+//   value={date}
+//   onChange={(e) => setDate(e.target.value)}
+// />
+// <br/><br/>
+        
+//       <br/>
+//       <button onClick={createTrip}>Create</button>
+
+    <div className="container mt-4">
+
+  <div className="card shadow p-4">
+    
+    <h2 className="mb-4 text-center">🚚 Create Trip</h2>
+
+    {/* Vehicle */}
+    <div className="mb-3">
+      <label>Select Vehicle</label>
+      <select className="form-control"
+        onChange={(e) => setSelectedVehicleId(Number(e.target.value))}
+      >
+        <option value="">Select Vehicle</option>
         {vehicles.map(vehicle => (
           <option key={vehicle.id} value={vehicle.id}>
             {vehicle.vehicleNo}
           </option>
         ))}
       </select>
-      <br/><br/>
+    </div>
 
-      <h3>Seleted Labours</h3>
+    {/* Date */}
+    <div className="mb-3">
+      <label>Select Date</label>
+      <input
+        type="date"
+        className="form-control"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+      />
+    </div>
 
+    {/* Labours */}
+    <div className="mb-3">
+      <label>Select Labours</label>
       {labours.map(labour => (
-        <div key={labour.id}>
+        <div key={labour.id} className="form-check">
           <input
-          type="checkbox"
-          checked={selectedLabours.includes(labour.id)}
-          onChange={() => handleLabourSelect(labour.id)}
+            type="checkbox"
+            className="form-check-input"
+            checked={selectedLabours.includes(labour.id)}
+            onChange={() => handleLabourSelect(labour.id)}
           />
-          {labour.name}
+          <label className="form-check-label">
+            {labour.name}
+          </label>
 
           <input
-          type="radio"
-          name="driver"
-          onChange={()  => setDriverId(labour.id)}
-          /> Driver 
-          </div>
+            type="radio"
+            name="driver"
+            className="ms-2"
+            onChange={() => setDriverId(labour.id)}
+          /> Driver
+        </div>
       ))}
+    </div>
 
-     <input
-  type="date"
-  value={date}
-  onChange={(e) => setDate(e.target.value)}
-/>
-<br/><br/>
-        
-      <br/>
-      <button onClick={createTrip}>Create</button>
+    {/* Button */}
+    <button className="btn btn-success w-100" onClick={createTrip}>
+      Create Trip
+    </button>
+
+  </div>
+</div>
 
     <h3>Send WhatsApp</h3>
 
