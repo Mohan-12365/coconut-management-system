@@ -10,9 +10,9 @@ function SalaryPage() {
   const [endDate, setEndDate] = useState("");
   const [salaryData, setSalaryData] = useState(null);
 
-  const selectedLabour = labours.find(
-  l => l.id === Number(selectedLabourId)
-);
+//   const selectedLabour = labours.find(
+//   l => l.id === Number(selectedLabourId)
+// );
 
   // Fetch labour list
   useEffect(() => {
@@ -172,7 +172,7 @@ function SalaryPage() {
             onClick={() => {
 
               const selectedLabour = labours.find(
-                l => l.id == selectedLabourId
+                l => l.id === Number(selectedLabourId)
               );
 
               const message = `Hi ${selectedLabour.name},
