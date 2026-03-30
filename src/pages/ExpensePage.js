@@ -77,7 +77,7 @@ function ExpensePage() {
     <div>
       <h2>Add Expense</h2>
 
-      // <select onChange={(e)=>setLabourId(e.target.value)}>
+      
     <h3>Select Labours</h3>
 
 {labours.map(l => (
@@ -97,15 +97,7 @@ function ExpensePage() {
   </div>
 ))}
 
-//   <option value="">Select Labour</option>
 
-//   {labours.map(l => (
-//     <option key={l.id} value={l.id}>
-//       {l.id} - {l.name}
-//     </option>
-//   ))}
-
-// </select>
 
 <br/><br/>
 
