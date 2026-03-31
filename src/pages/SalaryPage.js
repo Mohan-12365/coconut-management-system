@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 //import axios from "axios";
 import api from "../api";
+import jsPDF from "jspdf";
 
 function SalaryPage() {
 
@@ -34,6 +35,30 @@ function SalaryPage() {
       .then(res => setSalaryData(res.data))
       .catch(err => console.log(err));
   };
+
+  const downloadPDF = () => {
+
+  const doc = new jsPDF();
+
+  const selectedLabour = labours.find(
+    l => l.id === Number(selectedLabourId)
+  );
+
+  doc.setFontSize(16);
+  doc.text("Salary Report", 20, 20);
+
+  doc.setFontSize(12);
+
+  doc.text(`Name: ${selectedLabour.name}`, 20, 40);
+  doc.text(`From: ${startDate}`, 20, 50);
+  doc.text(`To: ${endDate}`, 20, 60);
+
+  doc.text(`Total Wage: ₹${salaryData.totalWages}`, 20, 80);
+  doc.text(`Expense: ₹${salaryData.totalExpense}`, 20, 90);
+  doc.text(`Final Salary: ₹${salaryData.finalSalary}`, 20, 100);
+
+  doc.save(`${selectedLabour.name}_salary.pdf`);
+};
 
 //   return (
 //     <div>
@@ -194,6 +219,13 @@ Final Salary: ₹${salaryData.finalSalary}`;
           >
             Send WhatsApp
           </button>
+
+              <button
+  className="btn btn-dark mt-2 w-100"
+  onClick={downloadPDF}
+>
+  Download PDF
+</button>
 
         </div>
       )}
