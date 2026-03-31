@@ -34,34 +34,34 @@ function App() {
         <h1>Coconut Management System</h1>
 
         {token && (
-        // <nav style={{ marginBottom: "20px" }}>
-        //   <Link to="/trip" style={{ marginRight: "15px" }}>Trip</Link>
-        //   <Link to="/salary" style={{ marginRight: "15px" }}>Salary</Link>
-        //   <Link to="/dashboard" style={{ marginRight: "15px" }}>Dashboard</Link>
-        //   <Link to="/expense" style={{ marginRight: "15px" }}>Expense</Link>
-        //   <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
-        //   <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
-        //   <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
-        //     <Link to="/history" style={{ marginRight: "15px" }}>Trip History</Link>
-        //   <Link to="/labours">Labours</Link>
+        <nav style={{ marginBottom: "20px" }}>
+          <Link to="/trip" style={{ marginRight: "15px" }}>Trip</Link>
+          <Link to="/salary" style={{ marginRight: "15px" }}>Salary</Link>
+          <Link to="/dashboard" style={{ marginRight: "15px" }}>Dashboard</Link>
+          <Link to="/expense" style={{ marginRight: "15px" }}>Expense</Link>
+          <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
+          <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
+          <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
+            <Link to="/history" style={{ marginRight: "15px" }}>Trip History</Link>
+          <Link to="/labours">Labours</Link>
 
-        // </nav>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div className="container-fluid">
+        </nav>
+//             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+//   <div className="container-fluid">
     
-    <span className="navbar-brand">🌴 Coconut System</span>
+//     <span className="navbar-brand">🌴 Coconut System</span>
 
-    <div>
-      <Link className="btn btn-outline-light me-2" to="/trip">Trip</Link>
-      <Link className="btn btn-outline-light me-2" to="/salary">Salary</Link>
-      <Link className="btn btn-outline-light me-2" to="/dashboard">Dashboard</Link>
-      <Link className="btn btn-outline-light me-2" to="/expense">Expense</Link>
-      <Link className="btn btn-outline-light me-2" to="/expense-history">History</Link>
-      <Link className="btn btn-outline-light me-2" to="/labours">Labours</Link>
-    </div>
+//     <div>
+//       <Link className="btn btn-outline-light me-2" to="/trip">Trip</Link>
+//       <Link className="btn btn-outline-light me-2" to="/salary">Salary</Link>
+//       <Link className="btn btn-outline-light me-2" to="/dashboard">Dashboard</Link>
+//       <Link className="btn btn-outline-light me-2" to="/expense">Expense</Link>
+//       <Link className="btn btn-outline-light me-2" to="/expense-history">History</Link>
+//       <Link className="btn btn-outline-light me-2" to="/labours">Labours</Link>
+//     </div>
 
-  </div>
-</nav>
+//   </div>
+// </nav>
         )}
         {/* <SalaryReport/>
 
