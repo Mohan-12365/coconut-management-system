@@ -36,13 +36,18 @@ function SalaryPage() {
       .catch(err => console.log(err));
   };
 
-  const downloadPDF = () => {
+ const downloadPDF = () => {
 
   const doc = new jsPDF();
 
   const selectedLabour = labours.find(
     l => l.id === Number(selectedLabourId)
   );
+
+  // 🔥 Clean function
+  const cleanNumber = (value) => {
+    return Number(String(value).replace(/[^0-9.-]+/g, ""));
+  };
 
   doc.setFontSize(16);
   doc.text("Salary Report", 20, 20);
@@ -52,17 +57,14 @@ function SalaryPage() {
   doc.text(`Name: ${selectedLabour.name}`, 20, 40);
   doc.text(`From: ${startDate}`, 20, 50);
   doc.text(`To: ${endDate}`, 20, 60);
-const cleanNumber = (value) => {
-  return Number(String(value).replace(/[^0-9.-]+/g, ""));
+
+  // ✅ NOW CORRECT
   doc.text(`Total Wage: ₹${cleanNumber(salaryData.totalWages)}`, 20, 80);
-doc.text(`Expense: ₹${cleanNumber(salaryData.totalExpense)}`, 20, 90);
-doc.text(`Final Salary: ₹${cleanNumber(salaryData.finalSalary)}`, 20, 100);
-};
- 
-    
+  doc.text(`Expense: ₹${cleanNumber(salaryData.totalExpense)}`, 20, 90);
+  doc.text(`Final Salary: ₹${cleanNumber(salaryData.finalSalary)}`, 20, 100);
+
   doc.save(`${selectedLabour.name}_salary.pdf`);
 };
-
 //   return (
 //     <div>
 
