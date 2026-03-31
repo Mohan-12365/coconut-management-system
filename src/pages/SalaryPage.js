@@ -52,10 +52,13 @@ function SalaryPage() {
   doc.text(`Name: ${selectedLabour.name}`, 20, 40);
   doc.text(`From: ${startDate}`, 20, 50);
   doc.text(`To: ${endDate}`, 20, 60);
-
-  doc.text(`Total Wage: ₹${Number(salaryData.totalWages)}`, 20, 80);
-doc.text(`Expense: ₹${Number(salaryData.totalExpense)}`, 20, 90);
-doc.text(`Final Salary: ₹${Number(salaryData.finalSalary)}`, 20, 100);
+const cleanNumber = (value) => {
+  return Number(String(value).replace(/[^0-9.-]+/g, ""));
+  doc.text(`Total Wage: ₹${cleanNumber(salaryData.totalWages)}`, 20, 80);
+doc.text(`Expense: ₹${cleanNumber(salaryData.totalExpense)}`, 20, 90);
+doc.text(`Final Salary: ₹${cleanNumber(salaryData.finalSalary)}`, 20, 100);
+};
+ 
     
   doc.save(`${selectedLabour.name}_salary.pdf`);
 };
