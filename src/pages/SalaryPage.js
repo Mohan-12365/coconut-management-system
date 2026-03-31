@@ -53,10 +53,10 @@ function SalaryPage() {
   doc.text(`From: ${startDate}`, 20, 50);
   doc.text(`To: ${endDate}`, 20, 60);
 
-  doc.text(`Total Wage: ₹${salaryData.totalWages}`, 20, 80);
-  doc.text(`Expense: ₹${salaryData.totalExpense}`, 20, 90);
-  doc.text(`Final Salary: ₹${salaryData.finalSalary}`, 20, 100);
-
+  doc.text(`Total Wage: ₹${Number(salaryData.totalWages)}`, 20, 80);
+doc.text(`Expense: ₹${Number(salaryData.totalExpense)}`, 20, 90);
+doc.text(`Final Salary: ₹${Number(salaryData.finalSalary)}`, 20, 100);
+    
   doc.save(`${selectedLabour.name}_salary.pdf`);
 };
 
