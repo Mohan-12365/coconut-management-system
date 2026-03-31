@@ -46,8 +46,9 @@ function SalaryPage() {
 
   // 🔥 Clean function
   const cleanNumber = (value) => {
-    return Number(String(value).replace(/[^0-9.-]+/g, ""));
-  };
+  if (!value) return 0;
+  return parseFloat(value.toString().replace(/[^\d.-]/g, ""));
+};
 
   doc.setFontSize(16);
   doc.text("Salary Report", 20, 20);
