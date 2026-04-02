@@ -28,8 +28,7 @@ function LoginPage({ onLogin }) {
     })
     .then(res => {
       alert("Login Success");
-      //localStorage.setItem("token", JSON.stringify(res.data));
-      const role = localStorage.getItem("role");
+      localStorage.setItem("token", JSON.stringify(res.data));
       
       navigate("/dashboard")
 
