@@ -13,7 +13,7 @@ function LabourSalaryPage() {
    api.get(`/salary/weekly/${labourId}?startDate=${startDate}&endDate=${endDate}`)
       .then(res => setSalaryData(res.data))
       .catch(err => console.log(err));
-  }, [labourId]);
+  }, [labourId, startDate, endDate]);
 
   return (
     <div className="container mt-4">
