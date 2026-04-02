@@ -17,6 +17,9 @@ import LabourListPage from "./pages/LabourListPage";
 import EditLabourPage from "./pages/EditLabourPage";
 import HistoryPage from "./pages/HistoryPage";
 
+import LabourSalaryPage from "./pages/LabourSalaryPage";
+import LabourExpensePage from "./pages/LabourExpensePage";
+
 function App() {
 
     // const [user, setUser] = useState(null);
@@ -26,6 +29,7 @@ function App() {
     // }
 
     const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
       
 
   return (
@@ -46,11 +50,14 @@ function App() {
         //   <Link to="/labours">Labours</Link>
 
         // </nav>
+            {token && (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div className="container-fluid">
+            <div className="container-fluid">
     
-    <span className="navbar-brand">🌴 Coconut System</span>
-
+            <span className="navbar-brand">🌴 Coconut System</span>
+      <div>
+        {/* 👨‍💼 ADMIN MENU */}
+        {role === "ADMIN" && (
     <div>
       <Link className="btn btn-outline-light me-2" to="/trip">Trip</Link>
       <Link className="btn btn-outline-light me-2" to="/salary">Salary</Link>
@@ -59,8 +66,16 @@ function App() {
       <Link className="btn btn-outline-light me-2" to="/expense-history">History</Link>
       <Link className="btn btn-outline-light me-2" to="/labours">Labours</Link>
     </div>
-
+)}
+       {/* 👷 LABOUR MENU */}
+       {role === "LABOUR" && (
+    <div>
+      <Link className="btn btn-outline-light me-2" to="/my-salary">My Salary</Link>
+      <Link className="btn btn-outline-light me-2" to="/my-expense">My Expense</Link>
+    </div>
+        )}
   </div>
+      </div>
 </nav>
         )}
         {/* <SalaryReport/>
