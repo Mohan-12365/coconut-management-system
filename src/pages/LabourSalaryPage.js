@@ -8,7 +8,7 @@ function LabourSalaryPage() {
   const labourId = localStorage.getItem("labourId");
 
   useEffect(() => {
-    api.get(`/salary/weekly/${labourId}?startDate=2026-03-01&endDate=2026-03-31`)
+   api.get(`/salary/weekly/${labourId}?startDate=${startDate}&endDate=${endDate}`)
       .then(res => setSalaryData(res.data))
       .catch(err => console.log(err));
   }, [labourId]);
