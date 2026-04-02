@@ -4,6 +4,8 @@ import api from "../api";
 function LabourSalaryPage() {
 
   const [salaryData, setSalaryData] = useState(null);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const labourId = localStorage.getItem("labourId");
 
