@@ -13,8 +13,13 @@ function LoginPage({ onLogin }) {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
     if (token) {
-      navigate("/dashboard");
+      if (role === "ADMIN") {
+      navigate("/dashboard", { replace: true });
+    } else if (role === "LABOUR") {
+      navigate("/my-salary", { replace: true });
+    }
     }
   }, [navigate]);
 
