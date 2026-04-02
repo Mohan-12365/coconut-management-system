@@ -33,7 +33,7 @@ function LoginPage({ onLogin }) {
     })
     .then(res => {
       alert("Login Success");
-      localStorage.setItem("token", JSON.stringify(res.data));
+      //localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.role);
       localStorage.setItem("labourId", res.data.labourId); // 🔥 important
