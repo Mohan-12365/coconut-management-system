@@ -82,6 +82,8 @@ function App() {
           <Route path="/labours" element={<ProtectedRoute><LabourListPage/></ProtectedRoute>} />
           <Route path="/edit-labour/:id" element={<ProtectedRoute><EditLabourPage/></ProtectedRoute>} />
           {/* <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} /> */}
+            <Route path="/my-salary" element={<LabourSalaryPage />} />
+<Route path="/my-expense" element={<LabourExpensePage />} />
         </Routes>
       </div>
     </Router>
