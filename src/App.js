@@ -97,8 +97,8 @@ function App() {
           <Route path="/labours" element={<ProtectedRoute allowedRole="ADMIN"><LabourListPage/></ProtectedRoute>} />
           <Route path="/edit-labour/:id" element={<ProtectedRoute allowedRole="ADMIN"><EditLabourPage/></ProtectedRoute>} />
           {/* <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} /> */}
-            <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>}} />
-            <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>}} />
+            <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
+            <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
         </Routes>
       </div>
     </Router>
