@@ -9,23 +9,71 @@ function LabourSalaryPage() {
 
   const labourId = localStorage.getItem("labourId");
 
-  useEffect(() => {
-   api.get(`/salary/weekly/${labourId}?startDate=${startDate}&endDate=${endDate}`)
+  // ❌ Don't auto call API when empty
+  // ✅ Call only when button clicked
+
+  const fetchSalary = () => {
+
+    if (!startDate || !endDate) {
+      alert("Please select date range");
+      return;
+    }
+
+    api.get(`/salary/weekly/${labourId}?startDate=${startDate}&endDate=${endDate}`)
       .then(res => setSalaryData(res.data))
       .catch(err => console.log(err));
-  }, [labourId, startDate, endDate]);
+  };
 
   return (
     <div className="container mt-4">
-      <h2>My Salary</h2>
 
-      {salaryData && (
-        <div className="card p-3">
-          <p>Total Wage: ₹{salaryData.totalWages}</p>
-          <p>Expense: ₹{salaryData.totalExpense}</p>
-          <h4>Final Salary: ₹{salaryData.finalSalary}</h4>
+      <div className="card shadow p-4">
+
+        <h2 className="text-center mb-4">💰 My Salary</h2>
+
+        {/* Start Date */}
+        <div className="mb-3">
+          <label>Start Date</label>
+          <input
+            type="date"
+            className="form-control"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
         </div>
-      )}
+
+        {/* End Date */}
+        <div className="mb-3">
+          <label>End Date</label>
+          <input
+            type="date"
+            className="form-control"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+        </div>
+
+        {/* Button */}
+        <button className="btn btn-primary w-100" onClick={fetchSalary}>
+          Get My Salary
+        </button>
+
+        {/* Result */}
+        {salaryData && (
+          <div className="mt-4 border p-3 rounded">
+
+            <p><strong>Total Wage:</strong> ₹{salaryData.totalWages}</p>
+            <p><strong>Expense:</strong> ₹{salaryData.totalExpense}</p>
+
+            <h5 className="text-success">
+              Final Salary: ₹{salaryData.finalSalary}
+            </h5>
+
+          </div>
+        )}
+
+      </div>
+
     </div>
   );
 }
