@@ -85,20 +85,20 @@ function App() {
 
           <Route path="/" element={<LoginPage/>} />
 
-          <Route path="/trip" element={<ProtectedRoute><TripPage /></ProtectedRoute>} />
-          <Route path="/salary" element={<ProtectedRoute><SalaryPage /></ProtectedRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} />
-         <Route path="/history" element={<ProtectedRoute><HistoryPage/></ProtectedRoute>} />
-          <Route path="/salary-report" element={<ProtectedRoute><SalaryReport/></ProtectedRoute>} />
-          <Route path="/expense" element={<ProtectedRoute><ExpensePage/></ProtectedRoute>} />
-          <Route path="/expense-history" element={<ProtectedRoute><ExpenseHistory/></ProtectedRoute>} />
-          <Route path="/add-labour" element={<ProtectedRoute><AddLabourPage/></ProtectedRoute>} />
-          <Route path="/add-vehicle" element={<ProtectedRoute><AddVehiclePage/></ProtectedRoute>} />
-          <Route path="/labours" element={<ProtectedRoute><LabourListPage/></ProtectedRoute>} />
-          <Route path="/edit-labour/:id" element={<ProtectedRoute><EditLabourPage/></ProtectedRoute>} />
+          <Route path="/trip" element={<ProtectedRoute allowedRole="ADMIN"><TripPage /></ProtectedRoute>} />
+          <Route path="/salary" element={<ProtectedRoute allowedRole="ADMIN"><SalaryPage /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute allowedRole="ADMIN"><DashboardPage/></ProtectedRoute>} />
+         <Route path="/history" element={<ProtectedRoute allowedRole="ADMIN"><HistoryPage/></ProtectedRoute>} />
+          <Route path="/salary-report" element={<ProtectedRoute allowedRole="ADMIN"><SalaryReport/></ProtectedRoute>} />
+          <Route path="/expense" element={<ProtectedRoute allowedRole="ADMIN"><ExpensePage/></ProtectedRoute>} />
+          <Route path="/expense-history" element={<ProtectedRoute allowedRole="ADMIN"><ExpenseHistory/></ProtectedRoute>} />
+          <Route path="/add-labour" element={<ProtectedRoute allowedRole="ADMIN"><AddLabourPage/></ProtectedRoute>} />
+          <Route path="/add-vehicle" element={<ProtectedRoute allowedRole="ADMIN"><AddVehiclePage/></ProtectedRoute>} />
+          <Route path="/labours" element={<ProtectedRoute allowedRole="ADMIN"><LabourListPage/></ProtectedRoute>} />
+          <Route path="/edit-labour/:id" element={<ProtectedRoute allowedRole="ADMIN"><EditLabourPage/></ProtectedRoute>} />
           {/* <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} /> */}
-            <Route path="/my-salary" element={<LabourSalaryPage />} />
-<Route path="/my-expense" element={<LabourExpensePage />} />
+            <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>}} />
+            <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>}} />
         </Routes>
       </div>
     </Router>
