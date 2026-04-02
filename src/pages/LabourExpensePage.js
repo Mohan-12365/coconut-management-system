@@ -11,7 +11,7 @@ function LabourExpensePage() {
     api.get(`/transactions/labour/${labourId}`)
       .then(res => setExpenses(res.data))
       .catch(err => console.log(err));
-  }, []);
+  }, [labourId]);
 
   return (
     <div className="container mt-4">
