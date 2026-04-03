@@ -27,7 +27,7 @@ function LoginPage({ onLogin }) {
 
     console.log("FULL URL:", api.defaults.baseURL + "/login");
     // axios.post("http://localhost:8080/login", {
-      api.post("login", {
+      api.post("/auth/login", {
       username: username,
       password: password
     })
@@ -37,8 +37,13 @@ function LoginPage({ onLogin }) {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.role);
       localStorage.setItem("labourId", res.data.labourId); // 🔥 important
-      
-      navigate("/dashboard")
+
+       if (res.data.role === "ADMIN") {
+    navigate("/dashboard");
+  } else if (res.data.role === "LABOUR") {
+    navigate("/my-salary");
+  }
+     // navigate("/dashboard")
 
     })
     .catch(err => {
