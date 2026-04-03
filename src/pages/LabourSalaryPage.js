@@ -78,11 +78,3 @@ function LabourSalaryPage() {
 
 export default LabourSalaryPage;
 
-
-
-
-  
-  );
-}
-
-export default LabourSalaryPage;
