@@ -8,6 +8,9 @@ function AddLabourPage() {
   const [phone, setPhone] = useState("");
   const [advance, setAdvance] = useState("");
 
+  const [username, setUsername] = useState(""); 
+  const [password, setPassword] = useState("");
+
   const addLabour = () => {
 
     api.post("/labours/add", {
