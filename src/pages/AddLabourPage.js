@@ -53,7 +53,17 @@ function AddLabourPage() {
       />
 
       <br/><br/>
-
+          <input
+  placeholder="Username"
+  onChange={(e) => setUsername(e.target.value)}
+/>
+ <br/><br/>
+<input
+  type="password"
+  placeholder="Password"
+  onChange={(e) => setPassword(e.target.value)}
+/>
+ <br/><br/>
       <button onClick={addLabour}>Add Labour</button>
 
     </div>
