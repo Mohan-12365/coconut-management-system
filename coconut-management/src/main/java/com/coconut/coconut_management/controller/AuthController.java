@@ -1,31 +1,29 @@
-package com.coconut.coconut_management.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import com.coconut.coconut_management.entity.User;
-import com.coconut.coconut_management.repository.UserRepository;
-
 @RestController
-
+@RequestMapping("/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     @Autowired
-    private UserRepository userRepository;
+    private LabourRepository labourRepo;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User loginRequest) {
+    public LoginResponse login(@RequestBody LoginRequest request) {
 
-        User user = userRepository
-                .findByUsernameAndPassword(
-                        loginRequest.getUsername(),
-                        loginRequest.getPassword());
+        // 👨‍💼 ADMIN LOGIN
+        if (request.getUsername().equals("admin") &&
+            request.getPassword().equals("admin123")) {
 
-        if (user == null) {
-            return ResponseEntity.status(401).body("Invalid Credentials");
+            return new LoginResponse("ADMIN", null, "admin-token");
         }
 
-        return ResponseEntity.ok(user);
+        // 👷 LABOUR LOGIN
+        Labour labour = labourRepo.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!labour.getPassword().equals(request.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        return new LoginResponse("LABOUR", labour.getId(), "labour-token");
     }
 }
