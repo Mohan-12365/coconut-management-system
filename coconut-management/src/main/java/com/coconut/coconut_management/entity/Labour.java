@@ -16,6 +16,9 @@ public class Labour {
 	private String name;
 	private String phone;
 	private Double totalAdvance = 0.0;
+
+	 private String username;
+    private String password;
 	
 	public Labour() {}
 	
