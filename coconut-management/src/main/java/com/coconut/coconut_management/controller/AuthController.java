@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.coconut.coconut_management.repository.LabourRepository;
 import com.coconut.coconut_management.entity.Labour;
-import com.coconut.coconut_management.dto.*;
+import com.coconut.coconut_management.dto.LoginRequest;
+import com.coconut.coconut_management.dto.LoginResponse;
 
 import java.util.Optional;
 
