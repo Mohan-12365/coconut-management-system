@@ -1,4 +1,7 @@
+package com.coconut.coconut_management.dto;
+
 public class LoginResponse {
+
     private String role;
     private Long labourId;
     private String token;
@@ -9,5 +12,15 @@ public class LoginResponse {
         this.token = token;
     }
 
-    // getters
+    public String getRole() {
+        return role;
+    }
+
+    public Long getLabourId() {
+        return labourId;
+    }
+
+    public String getToken() {
+        return token;
+    }
 }
