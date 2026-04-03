@@ -16,7 +16,9 @@ function AddLabourPage() {
     api.post("/labours/add", {
       name: name,
       phone: phone,
-      totalAdvance: Number(advance)
+      totalAdvance: Number(advance),
+      username: username,
+      password: password
     })
     .then(() => {
       alert("Labour Added");
