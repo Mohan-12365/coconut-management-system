@@ -32,4 +32,8 @@ public class Labour {
 	
 	public Double getTotalAdvance() { return totalAdvance; }
 	public void setTotalAdvance(Double totalAdvance) { this.totalAdvance = totalAdvance; }
+
+	public String getUsername() { return username; }
+
+    public String getPassword() { return password; }
 }
