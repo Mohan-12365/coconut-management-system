@@ -1,7 +1,5 @@
 
-import api from "../api";
-
-function LabourSalaryPage() {import { useState } from "react";   // ✅ ADD THIS
+import { useState } from "react";   // ✅ ADD THIS
 import api from "../api";
 
 function LabourSalaryPage() {
