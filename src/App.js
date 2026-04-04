@@ -113,9 +113,9 @@ function App() {
   </div>
 
   {/* 📄 PAGE CONTENT */}
-  <div className="p-4 w-100">
+ 
   
-  </div>
+
 
 </div>
       </>
@@ -124,6 +124,8 @@ function App() {
         {/* <SalaryReport/>
 
 <TripHistory/> */}
+
+ <div className="p-4 w-100">
         <Routes>
 
           <Route path="/" element={<LoginPage/>} />
@@ -143,6 +145,7 @@ function App() {
             <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
             <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
         </Routes>
+       </div>
       </div>
     </Router>
   );
