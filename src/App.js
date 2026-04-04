@@ -55,7 +55,7 @@ function App() {
             <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
             <div className="d-flex align-items-center">
     
-         //   <span className="navbar-brand d-flex align-items-center">
+        {/* <span className="navbar-brand d-flex align-items-center"> */}
                 <img 
                  src={logo} 
                  alt="logo" 
