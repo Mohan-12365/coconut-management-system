@@ -60,7 +60,7 @@ function App() {
                  alt="logo" 
                  width="40" 
                  height="40" 
-                 className="me-2"
+                 className="me-2 rounded-circle"
       />🌴 Coconut System</span>
       <div>
         {/* 👨‍💼 ADMIN MENU */}
