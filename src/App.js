@@ -23,11 +23,7 @@ import logo from "./assets/logo.png";
 
 function App() {
 
-    {/*  const [user, setUser] = useState(null);
-
-     if (!user) {
-     return <LoginPage onLogin={setUser} />
-     }   */}
+    
 
     const token = localStorage.getItem("token");
     const role = localStorage.getItem("role");
@@ -118,9 +114,7 @@ function App() {
 
   {/* 📄 PAGE CONTENT */}
   <div className="p-4 w-100">
-    <Routes>
-      {/* your routes here */}
-    </Routes>
+  
   </div>
 
 </div>
