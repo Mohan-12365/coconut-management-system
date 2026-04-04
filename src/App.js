@@ -65,6 +65,7 @@ function App() {
       <Link className="btn btn-outline-light me-2" to="/expense">Expense</Link>
       <Link className="btn btn-outline-light me-2" to="/expense-history">History</Link>
       <Link className="btn btn-outline-light me-2" to="/labours">Labours</Link>
+      <button className="btn btn-danger ms-2" onClick={() => {localStorage.clear(); window.location.href = "/";}}> Logout </button>
     </div>
 )}
        {/* 👷 LABOUR MENU */}
@@ -72,6 +73,7 @@ function App() {
     <div>
       <Link className="btn btn-outline-light me-2" to="/my-salary">My Salary</Link>
       <Link className="btn btn-outline-light me-2" to="/my-expense">My Expense</Link>
+      <button className="btn btn-danger ms-2" onClick={() => {localStorage.clear(); window.location.href = "/";}}> Logout </button>
     </div>
         )}
   </div>
