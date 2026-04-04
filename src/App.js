@@ -52,16 +52,17 @@ function App() {
 
         // </nav>
             
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid">
+            <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
+            <div className="d-flex align-items-center">
     
-            <span className="navbar-brand d-flex align-items-center"> <img 
+            //<span className="navbar-brand d-flex align-items-center">
+                <img 
                  src={logo} 
                  alt="logo" 
                  width="40" 
                  height="40" 
                  className="me-2 rounded-circle"
-      />🌴 Coconut System</span>
+      /> <span className="fw-bold text-white">🌴 Coconut System</span>
       <div>
         {/* 👨‍💼 ADMIN MENU */}
         {role === "ADMIN" && (
@@ -72,7 +73,7 @@ function App() {
       <Link className="btn btn-outline-light me-2" to="/expense">Expense</Link>
       <Link className="btn btn-outline-light me-2" to="/expense-history">History</Link>
       <Link className="btn btn-outline-light me-2" to="/labours">Labours</Link>
-      <button className="btn btn-danger ms-2" onClick={() => {localStorage.clear(); window.location.href = "/";}}> Logout </button>
+      <button className="btn btn-danger " onClick={() => {localStorage.clear(); window.location.href = "/";}}> Logout </button>
     </div>
 )}
        {/* 👷 LABOUR MENU */}
@@ -86,6 +87,43 @@ function App() {
   </div>
       </div>
 </nav>
+
+<div className="d-flex">
+
+  {/* 📌 SIDEBAR */}
+  <div className="bg-dark text-white p-3" style={{ width: "220px", minHeight: "100vh" }}>
+    
+    <h5 className="mb-4">Menu</h5>
+
+    {role === "ADMIN" && (
+      <>
+        <Link className="d-block text-white mb-2" to="/dashboard">📊 Dashboard</Link>
+        <Link className="d-block text-white mb-2" to="/trip">🚚 Trip</Link>
+        <Link className="d-block text-white mb-2" to="/salary">💰 Salary</Link>
+        <Link className="d-block text-white mb-2" to="/expense">💸 Expense</Link>
+        <Link className="d-block text-white mb-2" to="/expense-history">📜 History</Link>
+        <Link className="d-block text-white mb-2" to="/labours">👷 Labours</Link>
+      </>
+    )}
+
+    {role === "LABOUR" && (
+      <>
+        <Link className="d-block text-white mb-2" to="/my-salary">💰 My Salary</Link>
+        <Link className="d-block text-white mb-2" to="/my-expense">💸 My Expense</Link>
+      </>
+    )}
+
+  </div>
+
+  {/* 📄 PAGE CONTENT */}
+  <div className="p-4 w-100">
+    <Routes>
+      {/* your routes here */}
+    </Routes>
+  </div>
+
+</div>
+//e
         )}
         {/* <SalaryReport/>
 
