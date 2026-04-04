@@ -19,6 +19,7 @@ import HistoryPage from "./pages/HistoryPage";
 
 import LabourSalaryPage from "./pages/LabourSalaryPage";
 import LabourExpensePage from "./pages/LabourExpensePage";
+import logo from "./assets/logo.png";
 
 function App() {
 
@@ -54,7 +55,13 @@ function App() {
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
     
-            <span className="navbar-brand">🌴 Coconut System</span>
+            <span className="navbar-brand d-flex align-items-center"> <img 
+                 src={Logo} 
+                 alt="logo" 
+                 width="40" 
+                 height="40" 
+                 className="me-2"
+      />🌴 Coconut System</span>
       <div>
         {/* 👨‍💼 ADMIN MENU */}
         {role === "ADMIN" && (
