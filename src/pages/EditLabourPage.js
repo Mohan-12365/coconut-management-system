@@ -12,6 +12,9 @@ function EditLabourPage() {
   const [phone, setPhone] = useState("");
   const [advance, setAdvance] = useState("");
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   useEffect(() => {
 
     api.get(`/labours/${id}`)
@@ -19,6 +22,9 @@ function EditLabourPage() {
         setName(res.data.name);
         setPhone(res.data.phone);
         setAdvance(res.data.totalAdvance);
+
+        setUsername(res.data.username);
+        setPassword(res.data.password);
       });
 
   }, [id]);
@@ -28,7 +34,9 @@ function EditLabourPage() {
     api.put(`/labours/update/${id}`, {
       name: name,
       phone: phone,
-      totalAdvance: advance
+      totalAdvance: advance,
+      username,   
+      password 
     })
     .then(() => {
       alert("Labour Updated");
@@ -63,6 +71,20 @@ function EditLabourPage() {
 
       <br/><br/>
 
+          <input
+  placeholder="Username"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+/>
+ <br/><br/>
+<input
+  type="password"
+  placeholder="Password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+/>
+ <br/><br/>
+    
       <button onClick={updateLabour}>
         Update
       </button>
