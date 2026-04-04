@@ -44,6 +44,9 @@ public class LabourController {
 	    labour.setPhone(labourDetails.getPhone());
 	    labour.setTotalAdvance(labourDetails.getTotalAdvance());
 
+		labour.setUsername(updatedLabour.getUsername()); 
+        labour.setPassword(updatedLabour.getPassword()); 
+
 	    return labourRepository.save(labour);
 	}
 }
