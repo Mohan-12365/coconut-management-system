@@ -49,84 +49,90 @@ function App() {
 
           </nav>   */}
             
-            <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
-            <div className="d-flex align-items-center">
-    
-        {/* <span className="navbar-brand d-flex align-items-center"> */}
-                <img 
-                 src={logo} 
-                 alt="logo" 
-                 width="40" 
-                 height="40" 
-                 className="me-2 rounded-circle"
-      /> <span className="fw-bold text-white">🌴 Coconut System</span>
-      <div>
-        {/* 👨‍💼 ADMIN MENU */}
-        {role === "ADMIN" && (
-    <div>
-      <Link className="btn btn-outline-light me-2" to="/trip">Trip</Link>
-      <Link className="btn btn-outline-light me-2" to="/salary">Salary</Link>
-      <Link className="btn btn-outline-light me-2" to="/dashboard">Dashboard</Link>
-      <Link className="btn btn-outline-light me-2" to="/expense">Expense</Link>
-      <Link className="btn btn-outline-light me-2" to="/expense-history">History</Link>
-      <Link className="btn btn-outline-light me-2" to="/labours">Labours</Link>
-      <button className="btn btn-danger " onClick={() => {localStorage.clear(); window.location.href = "/";}}> Logout </button>
+           <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow">
+  <div className="container-fluid d-flex justify-content-between">
+
+    {/* 🔥 LOGO + TITLE */}
+    <div className="d-flex align-items-center">
+      <img 
+        src={logo} 
+        alt="logo" 
+        width="45" 
+        height="45" 
+        className="me-2 rounded-circle border border-light"
+      />
+      <span className="fs-5 fw-bold text-white">🌴 Coconut System</span>
     </div>
-)}
-       {/* 👷 LABOUR MENU */}
-       {role === "LABOUR" && (
-    <div>
-      <Link className="btn btn-outline-light me-2" to="/my-salary">My Salary</Link>
-      <Link className="btn btn-outline-light me-2" to="/my-expense">My Expense</Link>
-      <button className="btn btn-danger ms-2" onClick={() => {localStorage.clear(); window.location.href = "/";}}> Logout </button>
+
+    {/* 🔥 RIGHT SIDE MENU */}
+    <div className="d-flex align-items-center gap-2">
+
+      {role === "ADMIN" && (
+        <>
+          <Link className="btn btn-outline-light btn-sm" to="/dashboard">Dashboard</Link>
+          <Link className="btn btn-outline-light btn-sm" to="/trip">Trip</Link>
+          <Link className="btn btn-outline-light btn-sm" to="/salary">Salary</Link>
+          <Link className="btn btn-outline-light btn-sm" to="/expense">Expense</Link>
+          <Link className="btn btn-outline-light btn-sm" to="/expense-history">History</Link>
+          <Link className="btn btn-outline-light btn-sm" to="/labours">Labours</Link>
+        </>
+      )}
+
+      {role === "LABOUR" && (
+        <>
+          <Link className="btn btn-outline-light btn-sm" to="/my-salary">My Salary</Link>
+          <Link className="btn btn-outline-light btn-sm" to="/my-expense">My Expense</Link>
+        </>
+      )}
+
+      {/* 🔥 LOGOUT */}
+      <button
+        className="btn btn-danger btn-sm ms-2"
+        onClick={() => {
+          localStorage.clear();
+          window.location.href = "/";
+        }}
+      >
+        Logout
+      </button>
+
     </div>
-        )}
   </div>
-      </div>
 </nav>
 
 <div className="d-flex">
 
-  {/* 📌 SIDEBAR */}
-  <div className="bg-dark text-white p-3" style={{ width: "220px", minHeight: "100vh" }}>
-    
-    <h5 className="mb-4">Menu</h5>
+  {/* 🔥 SIDEBAR */}
+  <div 
+    className="bg-dark text-white p-4 shadow"
+    style={{ width: "240px", minHeight: "100vh" }}
+  >
+    <h5 className="mb-4 text-center">📌 Menu</h5>
 
     {role === "ADMIN" && (
       <>
-        <Link className="d-block text-white mb-2" to="/dashboard">📊 Dashboard</Link>
-        <Link className="d-block text-white mb-2" to="/trip">🚚 Trip</Link>
-        <Link className="d-block text-white mb-2" to="/salary">💰 Salary</Link>
-        <Link className="d-block text-white mb-2" to="/expense">💸 Expense</Link>
-        <Link className="d-block text-white mb-2" to="/expense-history">📜 History</Link>
-        <Link className="d-block text-white mb-2" to="/labours">👷 Labours</Link>
+        <Link className="nav-link text-white mb-2" to="/dashboard">📊 Dashboard</Link>
+        <Link className="nav-link text-white mb-2" to="/trip">🚚 Trip</Link>
+        <Link className="nav-link text-white mb-2" to="/salary">💰 Salary</Link>
+        <Link className="nav-link text-white mb-2" to="/expense">💸 Expense</Link>
+        <Link className="nav-link text-white mb-2" to="/expense-history">📜 History</Link>
+        <Link className="nav-link text-white mb-2" to="/labours">👷 Labours</Link>
       </>
     )}
 
     {role === "LABOUR" && (
       <>
-        <Link className="d-block text-white mb-2" to="/my-salary">💰 My Salary</Link>
-        <Link className="d-block text-white mb-2" to="/my-expense">💸 My Expense</Link>
+        <Link className="nav-link text-white mb-2" to="/my-salary">💰 My Salary</Link>
+        <Link className="nav-link text-white mb-2" to="/my-expense">💸 My Expense</Link>
       </>
     )}
-
   </div>
 
-  {/* 📄 PAGE CONTENT */}
- 
-  
-
-
-</div>
-      </>
-
-        )}
-        {/* <SalaryReport/>
-
-<TripHistory/> */}
-
- <div className="p-4 w-100">
-        <Routes>
+  {/* 🔥 PAGE CONTENT */}
+  <div className="p-4 w-100 bg-light" style={{ minHeight: "100vh" }}>
+    
+      {/* your routes here */}
+       <Routes>
 
           <Route path="/" element={<LoginPage/>} />
 
@@ -145,7 +151,21 @@ function App() {
             <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
             <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
         </Routes>
-       </div>
+    
+  </div>
+
+</div>
+
+
+</div>
+      </>
+
+        )}
+        {/* <SalaryReport/>
+
+<TripHistory/> */}
+
+
       </div>
     </Router>
   );
