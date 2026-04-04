@@ -19,7 +19,7 @@ import HistoryPage from "./pages/HistoryPage";
 
 import LabourSalaryPage from "./pages/LabourSalaryPage";
 import LabourExpensePage from "./pages/LabourExpensePage";
-import logo from "./assets/logo.png";
+import logo from "./assets/Logo.png";
 
 function App() {
 
