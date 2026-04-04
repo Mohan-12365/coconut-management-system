@@ -11,6 +11,8 @@ import com.coconut.coconut_management.repository.LabourDailyTransactionRepositor
 import com.coconut.coconut_management.repository.LabourRepository;
 import com.coconut.coconut_management.repository.TripLabourRepository;
 import com.coconut.coconut_management.repository.VehicleRepository;
+import com.coconut.coconut_management.repository.TripRepository;
+
 
 @CrossOrigin("*")
 @RestController
@@ -28,6 +30,10 @@ public class DashboardController {
 
     @Autowired
     private LabourDailyTransactionRepository transactionRepository;
+
+    @Autowired
+    private TripRepository tripRepo;
+
 
     @GetMapping
     public Map<String, Object> getDashboard() {
