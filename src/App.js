@@ -19,7 +19,7 @@ import HistoryPage from "./pages/HistoryPage";
 
 import LabourSalaryPage from "./pages/LabourSalaryPage";
 import LabourExpensePage from "./pages/LabourExpensePage";
-import logo from "./assets/Logo.png";
+import logo from "./assets/logo.png";
 
 function App() {
 
@@ -56,7 +56,7 @@ function App() {
             <div className="container-fluid">
     
             <span className="navbar-brand d-flex align-items-center"> <img 
-                 src={Logo} 
+                 src={logo} 
                  alt="logo" 
                  width="40" 
                  height="40" 
