@@ -23,11 +23,11 @@ import logo from "./assets/logo.png";
 
 function App() {
 
-    // const [user, setUser] = useState(null);
+    {/*  const [user, setUser] = useState(null);
 
-    // if (!user) {
-    //   return <LoginPage onLogin={setUser} />
-    // }
+     if (!user) {
+     return <LoginPage onLogin={setUser} />
+     }   */}
 
     const token = localStorage.getItem("token");
     const role = localStorage.getItem("role");
@@ -40,18 +40,18 @@ function App() {
 
         {token && (
             <>
-        // <nav style={{ marginBottom: "20px" }}>
-        //   <Link to="/trip" style={{ marginRight: "15px" }}>Trip</Link>
-        //   <Link to="/salary" style={{ marginRight: "15px" }}>Salary</Link>
-        //   <Link to="/dashboard" style={{ marginRight: "15px" }}>Dashboard</Link>
-        //   <Link to="/expense" style={{ marginRight: "15px" }}>Expense</Link>
-        //   <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
-        //   <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
-        //   <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
-        //     <Link to="/history" style={{ marginRight: "15px" }}>Trip History</Link>
-        //   <Link to="/labours">Labours</Link>
+        {/*  <nav style={{ marginBottom: "20px" }}>
+          <Link to="/trip" style={{ marginRight: "15px" }}>Trip</Link>
+          <Link to="/salary" style={{ marginRight: "15px" }}>Salary</Link>
+          <Link to="/dashboard" style={{ marginRight: "15px" }}>Dashboard</Link>
+          <Link to="/expense" style={{ marginRight: "15px" }}>Expense</Link>
+          <Link to="/expense-history" style={{ marginRight: "15px" }}>Expense History</Link>
+          <Link to="/add-labour" style={{ marginRight: "15px" }}>Add Labour</Link>
+          <Link to="/add-vehicle" style={{ marginRight: "15px" }}>Add Vehicle</Link>
+          <Link to="/history" style={{ marginRight: "15px" }}>Trip History</Link>
+          <Link to="/labours">Labours</Link>
 
-        // </nav>
+          </nav>   */}
             
             <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
             <div className="d-flex align-items-center">
