@@ -100,9 +100,9 @@ function App() {
   </div>
 </nav>
 
-<div className="d-flex">
+         {/*<div className="d-flex">
 
-  {/* 🔥 SIDEBAR */}
+ 
   <div 
     className="bg-dark text-white p-4 shadow"
     style={{ width: "240px", minHeight: "100vh" }}
@@ -126,7 +126,7 @@ function App() {
         <Link className="nav-link text-white mb-2" to="/my-expense">💸 My Expense</Link>
       </>
     )}
-  </div>
+  </div>*/}
 
   {/* 🔥 PAGE CONTENT 
   <div className="p-4 w-100 bg-light" style={{ minHeight: "100vh" }}>
@@ -139,14 +139,65 @@ function App() {
 
 
 
-</div>
+         {/*</div>
       </>
 
-        )}
+        )}*/}
         {/* <SalaryReport/>
 
 <TripHistory/> */}
-<Routes>
+
+         <div className="d-flex">
+
+  {/* 📌 SIDEBAR */}
+  <div className="bg-dark text-white p-3" style={{ width: "220px", minHeight: "100vh" }}>
+    
+    <h5 className="mb-4">📌 Menu</h5>
+
+    {role === "ADMIN" && (
+      <>
+        <Link className="d-block text-white mb-2" to="/dashboard">📊 Dashboard</Link>
+        <Link className="d-block text-white mb-2" to="/trip">🚚 Trip</Link>
+        <Link className="d-block text-white mb-2" to="/salary">💰 Salary</Link>
+        <Link className="d-block text-white mb-2" to="/expense">💸 Expense</Link>
+        <Link className="d-block text-white mb-2" to="/expense-history">📜 History</Link>
+        <Link className="d-block text-white mb-2" to="/labours">👷 Labours</Link>
+      </>
+    )}
+
+    {role === "LABOUR" && (
+      <>
+        <Link className="d-block text-white mb-2" to="/my-salary">💰 My Salary</Link>
+        <Link className="d-block text-white mb-2" to="/my-expense">💸 My Expense</Link>
+      </>
+    )}
+
+  </div>
+
+  {/* 📄 PAGE CONTENT */}
+  <div className="p-4 w-100">
+
+    <Routes>
+
+      <Route path="/" element={<LoginPage/>} />
+
+      <Route path="/trip" element={<ProtectedRoute allowedRole="ADMIN"><TripPage /></ProtectedRoute>} />
+      <Route path="/salary" element={<ProtectedRoute allowedRole="ADMIN"><SalaryPage /></ProtectedRoute>} />
+      <Route path="/dashboard" element={<ProtectedRoute allowedRole="ADMIN"><DashboardPage/></ProtectedRoute>} />
+      <Route path="/history" element={<ProtectedRoute allowedRole="ADMIN"><HistoryPage/></ProtectedRoute>} />
+      <Route path="/expense" element={<ProtectedRoute allowedRole="ADMIN"><ExpensePage/></ProtectedRoute>} />
+      <Route path="/expense-history" element={<ProtectedRoute allowedRole="ADMIN"><ExpenseHistory/></ProtectedRoute>} />
+      <Route path="/labours" element={<ProtectedRoute allowedRole="ADMIN"><LabourListPage/></ProtectedRoute>} />
+
+      <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
+      <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
+
+    </Routes>
+
+  </div>
+
+</div>
+{/*<Routes>
 
           <Route path="/" element={<LoginPage/>} />
 
@@ -161,12 +212,12 @@ function App() {
           <Route path="/add-vehicle" element={<ProtectedRoute allowedRole="ADMIN"><AddVehiclePage/></ProtectedRoute>} />
           <Route path="/labours" element={<ProtectedRoute allowedRole="ADMIN"><LabourListPage/></ProtectedRoute>} />
           <Route path="/edit-labour/:id" element={<ProtectedRoute allowedRole="ADMIN"><EditLabourPage/></ProtectedRoute>} />
-          {/* <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} /> */}
+          // <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} /> 
             <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
             <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
         </Routes>
 
-      </div>
+      </div>*/}
     </Router>
   );
 }
