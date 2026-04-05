@@ -35,18 +35,21 @@ public class LabourController {
 	 }
 	
 	@PutMapping("/update/{id}")
-	public Labour updateLabour(@PathVariable Long id, @RequestBody Labour labourDetails) {
+public Labour updateLabour(@PathVariable Long id, @RequestBody Labour labourDetails) {
 
-	    Labour labour = labourRepository.findById(id)
-	            .orElseThrow(() -> new RuntimeException("Labour not found"));
+    Labour labour = labourRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Labour not found"));
 
-	    labour.setName(labourDetails.getName());
-	    labour.setPhone(labourDetails.getPhone());
-	    labour.setTotalAdvance(labourDetails.getTotalAdvance());
+    // Update fields
+    labour.setName(labourDetails.getName());
+    labour.setPhone(labourDetails.getPhone());
+    labour.setTotalAdvance(labourDetails.getTotalAdvance());
 
-		labour.setUsername(updatedLabour.getUsername()); 
-        labour.setPassword(updatedLabour.getPassword()); 
+    // 🔥 FIX HERE (use labourDetails, NOT updatedLabour)
+    labour.setUsername(labourDetails.getUsername()); 
+    labour.setPassword(labourDetails.getPassword()); 
 
-	    return labourRepository.save(labour);
+    return labourRepository.save(labour);
+}
 	}
 }
