@@ -14,6 +14,10 @@ function App() {
   const [date, setDate] = useState("");
   const [tripResult, setTripResult] = useState([]);
   const [savedDate, setSavedDate] = useState("");
+  const [sqft, setSqft] = useState("");
+  const [coirMill, setCoirMill] = useState("");
+  const [rate, setRate] = useState(5); // default rate
+  const [paymentStatus, setPaymentStatus] = useState("UNPAID");
 
   //Add Labour
   useEffect(() => {
@@ -24,7 +28,7 @@ function App() {
     api.get("/vehicles/all")
        .then(res => setVehicles(res.data));
   }, []);
-
+const totalAmount = sqft && rate ? sqft * rate : 0;
   const handleLabourSelect = (labourId) => {
     if (selectedLabours.includes(labourId)) {
       setSelectedLabours(selectedLabours.filter(id => id !== labourId));
@@ -59,6 +63,13 @@ function App() {
     const tripData = {
       vehicleId: selectedVehicleId,
       date: date,
+       vehicleId,
+       date,
+      labours,
+      sqft: Number(sqft),
+      coirMill,
+      ratePerSqft: Number(rate),
+      paymentStatus
       labours: selectedLabours.map(id => ({
          labourId: id,
          driver: id === driverId
@@ -85,6 +96,8 @@ function App() {
     })
     .catch(err => console.log(err));
  };
+
+  
 
   return (
 //     <div style={{ padding: "20px"  }}>
@@ -192,7 +205,35 @@ function App() {
         </div>
       ))}
     </div>
+<input
+  type="text"
+  placeholder="Coir Mill Name"
+  value={coirMill}
+  onChange={(e) => setCoirMill(e.target.value)}
+/>
 
+<br/><br/>
+
+<input
+  type="number"
+  placeholder="Rate per Sqft"
+  value={rate}
+  onChange={(e) => setRate(e.target.value)}
+/>
+
+<br/><br/>
+
+<p><strong>Total Amount:</strong> ₹{totalAmount}</p>
+
+<br/>
+
+<select
+  value={paymentStatus}
+  onChange={(e) => setPaymentStatus(e.target.value)}
+>
+  <option value="UNPAID">Unpaid</option>
+  <option value="PAID">Paid</option>
+</select>
     {/* Button */}
     <button className="btn btn-success w-100" onClick={createTrip}>
       Create Trip
@@ -222,6 +263,16 @@ ${labour.driver ? "Driver 🚗" : ""}`;
     }}>
       Send WhatsApp
     </button>
+      <input
+  type="number"
+  placeholder="Enter Sqft"
+  value={sqft}
+  onChange={(e) => setSqft(e.target.value)}
+/>
+
+<br/><br/>
+
+
   </div>
   
 ))}
