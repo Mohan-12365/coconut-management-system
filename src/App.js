@@ -128,11 +128,25 @@ function App() {
     )}
   </div>
 
-  {/* 🔥 PAGE CONTENT */}
+  {/* 🔥 PAGE CONTENT 
   <div className="p-4 w-100 bg-light" style={{ minHeight: "100vh" }}>
     
-      {/* your routes here */}
-       <Routes>
+    
+     
+    
+  </div>*/}
+
+
+
+
+</div>
+      </>
+
+        )}
+        {/* <SalaryReport/>
+
+<TripHistory/> */}
+<Routes>
 
           <Route path="/" element={<LoginPage/>} />
 
@@ -151,20 +165,6 @@ function App() {
             <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
             <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
         </Routes>
-    
-  </div>
-
-
-
-
-</div>
-      </>
-
-        )}
-        {/* <SalaryReport/>
-
-<TripHistory/> */}
-
 
       </div>
     </Router>
