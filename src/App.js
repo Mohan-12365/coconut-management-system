@@ -47,7 +47,7 @@ function App() {
           </nav>   */}
         {token && (
           
-  
+  <div>
             
            <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow">
   <div className="container-fluid d-flex justify-content-between">
@@ -197,6 +197,7 @@ function App() {
   </div>
 
 </div>
+      </div>
 {/*<Routes>
 
           <Route path="/" element={<LoginPage/>} />
