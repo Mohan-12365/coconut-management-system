@@ -137,52 +137,9 @@ function App() {
 export default App;
 
 
-     {/*<div className="d-flex">
-    
-     
-      <div 
-        className="bg-dark text-white p-4 shadow"
-        style={{ width: "240px", minHeight: "100vh" }}
-      >
-        <h5 className="mb-4 text-center">📌 Menu</h5>
-    
-        {role === "ADMIN" && (
-          <>
-        <Link className="nav-link text-white mb-2" to="/dashboard">📊 Dashboard</Link>
-        <Link className="nav-link text-white mb-2" to="/trip">🚚 Trip</Link>
-        <Link className="nav-link text-white mb-2" to="/salary">💰 Salary</Link>
-        <Link className="nav-link text-white mb-2" to="/expense">💸 Expense</Link>
-        <Link className="nav-link text-white mb-2" to="/expense-history">📜 History</Link>
-        <Link className="nav-link text-white mb-2" to="/labours">👷 Labours</Link>
-      </>
-    )}
+ 
 
-    {role === "LABOUR" && (
-      <>
-        <Link className="nav-link text-white mb-2" to="/my-salary">💰 My Salary</Link>
-        <Link className="nav-link text-white mb-2" to="/my-expense">💸 My Expense</Link>
-      </>
-    )}
-  </div>*/}
-
-  {/* 🔥 PAGE CONTENT 
-  <div className="p-4 w-100 bg-light" style={{ minHeight: "100vh" }}>
-    
-    
-     
-    
-  </div>*/}
-
-
-
-
-         {/*</div>
-      </>
-
-        )}*/}
-        {/* <SalaryReport/>
-
-<TripHistory/> */}
+ 
 
 
 
@@ -199,24 +156,4 @@ export default App;
 
 
 
-{/*<Routes>
 
-          <Route path="/" element={<LoginPage/>} />
-
-          <Route path="/trip" element={<ProtectedRoute allowedRole="ADMIN"><TripPage /></ProtectedRoute>} />
-          <Route path="/salary" element={<ProtectedRoute allowedRole="ADMIN"><SalaryPage /></ProtectedRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute allowedRole="ADMIN"><DashboardPage/></ProtectedRoute>} />
-         <Route path="/history" element={<ProtectedRoute allowedRole="ADMIN"><HistoryPage/></ProtectedRoute>} />
-          <Route path="/salary-report" element={<ProtectedRoute allowedRole="ADMIN"><SalaryReport/></ProtectedRoute>} />
-          <Route path="/expense" element={<ProtectedRoute allowedRole="ADMIN"><ExpensePage/></ProtectedRoute>} />
-          <Route path="/expense-history" element={<ProtectedRoute allowedRole="ADMIN"><ExpenseHistory/></ProtectedRoute>} />
-          <Route path="/add-labour" element={<ProtectedRoute allowedRole="ADMIN"><AddLabourPage/></ProtectedRoute>} />
-          <Route path="/add-vehicle" element={<ProtectedRoute allowedRole="ADMIN"><AddVehiclePage/></ProtectedRoute>} />
-          <Route path="/labours" element={<ProtectedRoute allowedRole="ADMIN"><LabourListPage/></ProtectedRoute>} />
-          <Route path="/edit-labour/:id" element={<ProtectedRoute allowedRole="ADMIN"><EditLabourPage/></ProtectedRoute>} />
-          // <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} /> 
-            <Route path="/my-salary" element={<ProtectedRoute allowedRole="LABOUR"><LabourSalaryPage/></ProtectedRoute>} />
-            <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
-        </Routes>
-
-      </div>*/}
