@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import TripPage from "./pages/TripPage";
 import SalaryPage from "./pages/SalaryPage";
 import DashboardPage from "./pages/DashboardPage";
-import TripHistory from "./TripHistory";
+//import TripHistory from "./TripHistory";
 import SalaryReport from "./SalaryReport";
 import LoginPage from "./LoginPage";
 import ProtectedRoute from "./ProtectedRoute";
@@ -68,21 +68,21 @@ function App() {
     <div className="d-flex align-items-center gap-2">
 
       {role === "ADMIN" && (
-        <>
+        <div>
           <Link className="btn btn-outline-light btn-sm" to="/dashboard">Dashboard</Link>
           <Link className="btn btn-outline-light btn-sm" to="/trip">Trip</Link>
           <Link className="btn btn-outline-light btn-sm" to="/salary">Salary</Link>
           <Link className="btn btn-outline-light btn-sm" to="/expense">Expense</Link>
           <Link className="btn btn-outline-light btn-sm" to="/expense-history">History</Link>
           <Link className="btn btn-outline-light btn-sm" to="/labours">Labours</Link>
-        </>
+        </div>
       )}
 
       {role === "LABOUR" && (
-        <>
+        <div>
           <Link className="btn btn-outline-light btn-sm" to="/my-salary">My Salary</Link>
           <Link className="btn btn-outline-light btn-sm" to="/my-expense">My Expense</Link>
-        </>
+        </div>
       )}
 
       {/* 🔥 LOGOUT */}
