@@ -33,10 +33,7 @@ function App() {
     <Router>
       <div style={{ padding: "20px" }}>
         <h1>Coconut Management System</h1>
-
-        {token && (
-            <div>
-        {/*  <nav style={{ marginBottom: "20px" }}>
+      {/*  <nav style={{ marginBottom: "20px" }}>
           <Link to="/trip" style={{ marginRight: "15px" }}>Trip</Link>
           <Link to="/salary" style={{ marginRight: "15px" }}>Salary</Link>
           <Link to="/dashboard" style={{ marginRight: "15px" }}>Dashboard</Link>
@@ -48,6 +45,9 @@ function App() {
           <Link to="/labours">Labours</Link>
 
           </nav>   */}
+        {token && (
+          
+  
             
            <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow">
   <div className="container-fluid d-flex justify-content-between">
@@ -99,7 +99,7 @@ function App() {
     </div>
   </div>
 </nav>
-            </div>
+          
          {/*<div className="d-flex">
 
  
