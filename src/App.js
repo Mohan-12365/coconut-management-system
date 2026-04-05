@@ -5,16 +5,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import TripPage from "./pages/TripPage";
 import SalaryPage from "./pages/SalaryPage";
 import DashboardPage from "./pages/DashboardPage";
-//import TripHistory from "./TripHistory";
-//import SalaryReport from "./SalaryReport";
+import TripHistory from "./TripHistory";
+import SalaryReport from "./SalaryReport";
 import LoginPage from "./LoginPage";
 import ProtectedRoute from "./ProtectedRoute";
 import ExpensePage from "./pages/ExpensePage";
 import ExpenseHistory from "./pages/ExpenseHistory";
-//import AddLabourPage from "./pages/AddLabourPage";
-//import AddVehiclePage from "./pages/AddVehiclePage";
+import AddLabourPage from "./pages/AddLabourPage";
+import AddVehiclePage from "./pages/AddVehiclePage";
 import LabourListPage from "./pages/LabourListPage";
-//import EditLabourPage from "./pages/EditLabourPage";
+import EditLabourPage from "./pages/EditLabourPage";
 import HistoryPage from "./pages/HistoryPage";
 
 import LabourSalaryPage from "./pages/LabourSalaryPage";
@@ -101,9 +101,9 @@ function App() {
 </nav>
           
         
-         <div className="d-flex">
+         {/* <div className="d-flex">
 
-  {/* 📌 SIDEBAR */}
+   📌 SIDEBAR 
   <div className="bg-dark text-white p-3" style={{ width: "220px", minHeight: "100vh" }}>
     
     <h5 className="mb-4">📌 Menu</h5>
@@ -126,10 +126,10 @@ function App() {
       </>
     )}
 
-  </div>
+  </div>*/}
 
   {/* 📄 PAGE CONTENT */}
-  <div className="p-4 w-100">
+ 
 
     <Routes>
 
@@ -148,7 +148,7 @@ function App() {
 
     </Routes>
 
-  </div>
+
       </div>
 </div>
       )}
@@ -161,17 +161,17 @@ function App() {
 export default App;
 
 
- {/*<div className="d-flex">
-
- 
-  <div 
-    className="bg-dark text-white p-4 shadow"
-    style={{ width: "240px", minHeight: "100vh" }}
-  >
-    <h5 className="mb-4 text-center">📌 Menu</h5>
-
-    {role === "ADMIN" && (
-      <>
+     {/*<div className="d-flex">
+    
+     
+      <div 
+        className="bg-dark text-white p-4 shadow"
+        style={{ width: "240px", minHeight: "100vh" }}
+      >
+        <h5 className="mb-4 text-center">📌 Menu</h5>
+    
+        {role === "ADMIN" && (
+          <>
         <Link className="nav-link text-white mb-2" to="/dashboard">📊 Dashboard</Link>
         <Link className="nav-link text-white mb-2" to="/trip">🚚 Trip</Link>
         <Link className="nav-link text-white mb-2" to="/salary">💰 Salary</Link>
