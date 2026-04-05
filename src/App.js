@@ -35,7 +35,7 @@ function App() {
         <h1>Coconut Management System</h1>
 
         {token && (
-            
+            <div>
         {/*  <nav style={{ marginBottom: "20px" }}>
           <Link to="/trip" style={{ marginRight: "15px" }}>Trip</Link>
           <Link to="/salary" style={{ marginRight: "15px" }}>Salary</Link>
@@ -99,7 +99,7 @@ function App() {
     </div>
   </div>
 </nav>
-
+            </div>
          {/*<div className="d-flex">
 
  
