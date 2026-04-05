@@ -100,53 +100,7 @@ function App() {
   </div>
 </nav>
           
-         {/*<div className="d-flex">
-
- 
-  <div 
-    className="bg-dark text-white p-4 shadow"
-    style={{ width: "240px", minHeight: "100vh" }}
-  >
-    <h5 className="mb-4 text-center">📌 Menu</h5>
-
-    {role === "ADMIN" && (
-      <>
-        <Link className="nav-link text-white mb-2" to="/dashboard">📊 Dashboard</Link>
-        <Link className="nav-link text-white mb-2" to="/trip">🚚 Trip</Link>
-        <Link className="nav-link text-white mb-2" to="/salary">💰 Salary</Link>
-        <Link className="nav-link text-white mb-2" to="/expense">💸 Expense</Link>
-        <Link className="nav-link text-white mb-2" to="/expense-history">📜 History</Link>
-        <Link className="nav-link text-white mb-2" to="/labours">👷 Labours</Link>
-      </>
-    )}
-
-    {role === "LABOUR" && (
-      <>
-        <Link className="nav-link text-white mb-2" to="/my-salary">💰 My Salary</Link>
-        <Link className="nav-link text-white mb-2" to="/my-expense">💸 My Expense</Link>
-      </>
-    )}
-  </div>*/}
-
-  {/* 🔥 PAGE CONTENT 
-  <div className="p-4 w-100 bg-light" style={{ minHeight: "100vh" }}>
-    
-    
-     
-    
-  </div>*/}
-
-
-
-
-         {/*</div>
-      </>
-
-        )}*/}
-        {/* <SalaryReport/>
-
-<TripHistory/> */}
-
+        
          <div className="d-flex">
 
   {/* 📌 SIDEBAR */}
@@ -198,6 +152,76 @@ function App() {
 
 </div>
       </div>
+
+    </Router>
+  );
+}
+
+export default App;
+
+
+ {/*<div className="d-flex">
+
+ 
+  <div 
+    className="bg-dark text-white p-4 shadow"
+    style={{ width: "240px", minHeight: "100vh" }}
+  >
+    <h5 className="mb-4 text-center">📌 Menu</h5>
+
+    {role === "ADMIN" && (
+      <>
+        <Link className="nav-link text-white mb-2" to="/dashboard">📊 Dashboard</Link>
+        <Link className="nav-link text-white mb-2" to="/trip">🚚 Trip</Link>
+        <Link className="nav-link text-white mb-2" to="/salary">💰 Salary</Link>
+        <Link className="nav-link text-white mb-2" to="/expense">💸 Expense</Link>
+        <Link className="nav-link text-white mb-2" to="/expense-history">📜 History</Link>
+        <Link className="nav-link text-white mb-2" to="/labours">👷 Labours</Link>
+      </>
+    )}
+
+    {role === "LABOUR" && (
+      <>
+        <Link className="nav-link text-white mb-2" to="/my-salary">💰 My Salary</Link>
+        <Link className="nav-link text-white mb-2" to="/my-expense">💸 My Expense</Link>
+      </>
+    )}
+  </div>*/}
+
+  {/* 🔥 PAGE CONTENT 
+  <div className="p-4 w-100 bg-light" style={{ minHeight: "100vh" }}>
+    
+    
+     
+    
+  </div>*/}
+
+
+
+
+         {/*</div>
+      </>
+
+        )}*/}
+        {/* <SalaryReport/>
+
+<TripHistory/> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {/*<Routes>
 
           <Route path="/" element={<LoginPage/>} />
@@ -219,8 +243,3 @@ function App() {
         </Routes>
 
       </div>*/}
-    </Router>
-  );
-}
-
-export default App;
