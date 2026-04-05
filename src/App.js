@@ -3,7 +3,7 @@
 //import {useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import TripPage from "./pages/TripPage";
-import SalaryPage from "./pages/SalaryPage";
+//import SalaryPage from "./pages/SalaryPage";
 import DashboardPage from "./pages/DashboardPage";
 //import TripHistory from "./TripHistory";
 import SalaryReport from "./SalaryReport";
@@ -11,10 +11,10 @@ import LoginPage from "./LoginPage";
 import ProtectedRoute from "./ProtectedRoute";
 import ExpensePage from "./pages/ExpensePage";
 import ExpenseHistory from "./pages/ExpenseHistory";
-import AddLabourPage from "./pages/AddLabourPage";
-import AddVehiclePage from "./pages/AddVehiclePage";
+//import AddLabourPage from "./pages/AddLabourPage";
+//import AddVehiclePage from "./pages/AddVehiclePage";
 import LabourListPage from "./pages/LabourListPage";
-import EditLabourPage from "./pages/EditLabourPage";
+//import EditLabourPage from "./pages/EditLabourPage";
 import HistoryPage from "./pages/HistoryPage";
 
 import LabourSalaryPage from "./pages/LabourSalaryPage";
