@@ -47,6 +47,14 @@ public class TripController {
 	
 	@PostMapping("/full")
 	public List<Map<String, Object>> createFullTrip(@RequestBody TripRequest request) {
+		trip.setSqft(request.getSqft());
+        trip.setCoirMill(request.getCoirMill());
+        trip.setRatePerSqft(request.getRatePerSqft());
+
+        double total = request.getSqft() * request.getRatePerSqft();
+        trip.setTotalAmount(total);
+
+        trip.setPaymentStatus(request.getPaymentStatus());
 		return tripService.createFullTrip(request);
 	}
 
