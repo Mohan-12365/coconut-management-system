@@ -47,15 +47,31 @@ public class TripController {
 	
 	@PostMapping("/full")
 	public List<Map<String, Object>> createFullTrip(@RequestBody TripRequest request) {
-		trip.setSqft(request.getSqft());
-        trip.setCoirMill(request.getCoirMill());
-        trip.setRatePerSqft(request.getRatePerSqft());
+ // 🔥 Step 1: Get vehicle
+    Vehicle vehicle = vehicleRepository.findById(request.getVehicleId())
+        .orElseThrow(() -> new RuntimeException("Vehicle Not Found"));
 
-        double total = request.getSqft() * request.getRatePerSqft();
-        trip.setTotalAmount(total);
+    // 🔥 Step 2: Create Trip object
+    Trip trip = new Trip();
+    trip.setVehicle(vehicle);
+    trip.setDate(LocalDate.parse(request.getDate()));
 
-        trip.setPaymentStatus(request.getPaymentStatus());
-		return tripService.createFullTrip(request);
+    // 🔥 Step 3: Set your new fields
+    trip.setSqft(request.getSqft());
+    trip.setCoirMill(request.getCoirMill());
+    trip.setRatePerSqft(request.getRatePerSqft());
+
+    double total = request.getSqft() * request.getRatePerSqft();
+    trip.setTotalAmount(total);
+
+    trip.setPaymentStatus(request.getPaymentStatus());
+
+    // 🔥 Step 4: SAVE trip
+    tripRepository.save(trip);
+
+    // 🔥 Step 5: Call service (if needed)
+    return tripService.createFullTrip(request);
+
 	}
 
 	@GetMapping("/by-date")
