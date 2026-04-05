@@ -24,6 +24,12 @@ public class Trip {
 	
 	@Column(nullable = false)
 	private LocalDate date;
+
+	private Double sqft;
+    private String coirMill;
+    private Double ratePerSqft;
+    private Double totalAmount;
+    private String paymentStatus; // PAID / UNPAID
 	
 	public Trip() {
 	}
@@ -60,5 +66,20 @@ public class Trip {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+
+	public Double getSqft() { return sqft; }
+    public void setSqft(Double sqft) { this.sqft = sqft; }
+
+    public String getCoirMill() { return coirMill; }
+    public void setCoirMill(String coirMill) { this.coirMill = coirMill; }
+
+    public Double getRatePerSqft() { return ratePerSqft; }
+    public void setRatePerSqft(Double ratePerSqft) { this.ratePerSqft = ratePerSqft; }
+
+    public Double getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(Double totalAmount) { this.totalAmount = totalAmount; }
+
+    public String getPaymentStatus() { return paymentStatus; }
+    public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
 
 }
