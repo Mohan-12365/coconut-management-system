@@ -104,7 +104,11 @@ function App() {
        
   
 
-    <Routes>
+  
+</div>
+      )}
+
+  <Routes>
 
  
 
@@ -126,8 +130,6 @@ function App() {
             <Route path="/my-expense" element={<ProtectedRoute allowedRole="LABOUR"><LabourExpensePage/></ProtectedRoute>} />
         </Routes>
    
-</div>
-      )}
       </div>
 
     </Router>
