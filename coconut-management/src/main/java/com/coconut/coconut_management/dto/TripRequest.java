@@ -7,6 +7,10 @@ public class TripRequest {
 	private Long vehicleId;
 	private String date;
 	private List<LabourRequest> labours;
+	private double sqft;
+    private String coirMill;
+    private double ratePerSqft;
+    private String paymentStatus;
 	
 	public Long getVehicleId() {
 		return vehicleId;
@@ -31,6 +35,38 @@ public class TripRequest {
 	public void setLabours(List<LabourRequest> labours) {
 		this.labours = labours;
 	}
+
+	public double getSqft() {
+    return sqft;
+}
+
+public void setSqft(double sqft) {
+    this.sqft = sqft;
+}
+
+public String getCoirMill() {
+    return coirMill;
+}
+
+public void setCoirMill(String coirMill) {
+    this.coirMill = coirMill;
+}
+
+public double getRatePerSqft() {
+    return ratePerSqft;
+}
+
+public void setRatePerSqft(double ratePerSqft) {
+    this.ratePerSqft = ratePerSqft;
+}
+
+public String getPaymentStatus() {
+    return paymentStatus;
+}
+
+public void setPaymentStatus(String paymentStatus) {
+    this.paymentStatus = paymentStatus;
+}
 	
 	//Inner class
 	public static class LabourRequest {
